@@ -1,4 +1,4 @@
-# CoreV
+# SimpleCore
 Diese Core ist ein Projekt welches die Entwicklung von Minecraft Plugins erleichtern soll sie enthält einige kleinere und größere selbst geschriebene API's beziehungsweise fungiert als eine Große API.
 
 ## Installation
