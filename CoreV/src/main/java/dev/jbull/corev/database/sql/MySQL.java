@@ -24,6 +24,7 @@ import dev.jbull.corev.utils.Callback;
 import dev.jbull.corev.utils.ExecuteScheduler;
 
 import java.sql.*;
+import java.time.Duration;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
@@ -32,7 +33,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class MySQL {
     private HikariConfig config;
     private HikariDataSource hikari;
-    String Host;
+    String host;
     String user;
     String pw;
     String database;
@@ -40,20 +41,23 @@ public class MySQL {
     private ExecuteScheduler scheduler;
 
     public MySQL(String host, String user, String pw, String databse, String port) {
-        this.Host = host;
+        this.host = host;
         this.user = user;
         this.pw = pw;
         this.database = databse;
         this.port = port;
         config = new HikariConfig();
+        config.setDriverClassName("org.mariadb.jdbc.Driver");
+        config.setJdbcUrl("jdbc:mariadb://" + this.host + ":" + this.port + "/" + this.database);
+        config.setUsername(this.user);
+        config.setPassword(this.pw);
         config.setMaximumPoolSize(Runtime.getRuntime().availableProcessors());
         config.setMinimumIdle(3);
-        config.setDriverClassName("org.mariadb.jdbc.Driver");
-        config.setJdbcUrl("jdbc:mariadb://" + this.Host + ":" + this.port + "/" + this.database);
-        config.setUsername(this.user);
-        config.setPassword(this.user);
+        config.setIdleTimeout(Duration.ofMinutes(5).toMillis());
+        config.setMaxLifetime(Duration.ofMinutes(5).toMillis());
+        config.setConnectionTimeout(30000);
+        config.setValidationTimeout(30000);
         hikari = new HikariDataSource(config);
-
     }
 
     public boolean isConnected() {

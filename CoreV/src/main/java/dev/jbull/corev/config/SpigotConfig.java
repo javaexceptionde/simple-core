@@ -37,7 +37,7 @@ public class SpigotConfig implements IConfig {
     @Override
     public void load(Callback<IConfig> callback) {
         load = true;
-        scheduler.schedule(runnable -> {
+
             try {
                 configuration.load(file);
             } catch (IOException e) {
@@ -47,7 +47,7 @@ public class SpigotConfig implements IConfig {
             }
             callback.call(this);
             load = false;
-        });
+
     }
 
     @Override

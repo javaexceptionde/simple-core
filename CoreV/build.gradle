@@ -51,7 +51,7 @@ dependencies {
     compile("org.mongodb:mongo-java-driver:3.4.1")
     compile("org.mongodb:mongodb-driver-async:3.4.1")
     compile 'org.yaml:snakeyaml:1.19-SNAPSHOT'
-    implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
     annotationProcessor 'org.projectlombok:lombok:1@jar'
 }
 

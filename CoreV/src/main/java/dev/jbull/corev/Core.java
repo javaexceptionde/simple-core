@@ -54,15 +54,10 @@ public class Core extends JavaPlugin {
             yamlConfig.addDefault("database.mysql.database", "Core");
             yamlConfig.addDefault("database.mysql.port", "3306");
             yamlConfig.setDefaults();
-            Bukkit.getScheduler().runTask(instance, new Runnable() {
-                @Override
-                public void run() {
-                    initMysql();
-                }
-            });
         });
-
         registerListener();
+        initMysql();
+
     }
 
     @Override
@@ -77,9 +72,11 @@ public class Core extends JavaPlugin {
     }
 
     public void initMysql(){
+
         this.mysql = new MySQL(yamlConfig.getString("database.mysql.host"), yamlConfig.getString("database.mysql.user")
                 , yamlConfig.getString("database.mysql.password"), yamlConfig.getString("database.mysql.database")
                 , yamlConfig.getString("database.mysql.port"));
+        System.out.println("d");
         mysql.update("CREATE TABLE IF NOT EXISTS nameuuid(UUID VARCHAR(64), NAME TEXT)");
     }
 }
