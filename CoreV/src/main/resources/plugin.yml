@@ -1,0 +1,6 @@
+name: CoreV
+main: dev.jbull.corev.Core
+version: 1
+
+commands:
+  g:

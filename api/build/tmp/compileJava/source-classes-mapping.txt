@@ -1,0 +1,4 @@
+dev/jbull/corev/api/utils/NameUUID.java
+ dev.jbull.corev.api.utils.NameUUID
+dev/jbull/corev/api/CoreV.java
+ dev.jbull.corev.api.CoreV

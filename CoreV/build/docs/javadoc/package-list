@@ -1,0 +1,16 @@
+dev.jbull.corev
+dev.jbull.corev.commands
+dev.jbull.corev.config
+dev.jbull.corev.database.mogodb
+dev.jbull.corev.database.sql
+dev.jbull.corev.events
+dev.jbull.corev.inventory
+dev.jbull.corev.inventory.abstracts
+dev.jbull.corev.inventory.anvil
+dev.jbull.corev.inventory.interfaces
+dev.jbull.corev.listener
+dev.jbull.corev.messages
+dev.jbull.corev.player
+dev.jbull.corev.player.nameUuid
+dev.jbull.corev.scoreboard
+dev.jbull.corev.utils
