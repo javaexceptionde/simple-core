@@ -1,6 +1,5 @@
-name: CoreV
-main: dev.jbull.corev.Core
-version: 1
+name: SimpleCore
+main: dev.jbull.simplecore.Core
+version: 1.0.1-BETA
 
 commands:
-  g:

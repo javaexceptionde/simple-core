@@ -1,4 +1,8 @@
 dev/jbull/corev/api/utils/NameUUID.java
  dev.jbull.corev.api.utils.NameUUID
+dev/jbull/corev/api/inventory/InventoryType.java
+ dev.jbull.corev.api.inventory.InventoryType
+dev/jbull/corev/api/inventory/InventoryManager.java
+ dev.jbull.corev.api.inventory.InventoryManager
 dev/jbull/corev/api/CoreV.java
  dev.jbull.corev.api.CoreV

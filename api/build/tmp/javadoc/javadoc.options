@@ -5,4 +5,6 @@
 -quiet 
 -windowtitle 'api 1.0-SNAPSHOT API'
 'C:\\Users\\seite\\IdeaProjects\\CoreV\\api\\src\\main\\java\\dev\\jbull\\corev\\api\\CoreV.java'
+'C:\\Users\\seite\\IdeaProjects\\CoreV\\api\\src\\main\\java\\dev\\jbull\\corev\\api\\inventory\\InventoryManager.java'
+'C:\\Users\\seite\\IdeaProjects\\CoreV\\api\\src\\main\\java\\dev\\jbull\\corev\\api\\inventory\\InventoryType.java'
 'C:\\Users\\seite\\IdeaProjects\\CoreV\\api\\src\\main\\java\\dev\\jbull\\corev\\api\\utils\\NameUUID.java'
