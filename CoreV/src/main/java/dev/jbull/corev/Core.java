@@ -19,6 +19,7 @@ package dev.jbull.corev;
 import dev.jbull.corev.config.IConfig;
 import dev.jbull.corev.config.SpigotConfig;
 import dev.jbull.corev.database.sql.MySQL;
+import dev.jbull.corev.inventory.InventoryManager;
 import dev.jbull.corev.listener.InventoryClickListener;
 import dev.jbull.corev.listener.InventoryCloseListener;
 import dev.jbull.corev.listener.PlayerJoinListener;
@@ -38,6 +39,7 @@ public class Core extends JavaPlugin {
     private MySQL mysql;
     private NameUuidFetcher nameUuidFetcher;
     private IConfig yamlConfig;
+    private InventoryManager inventoryManager;
 
     @Override
     public void onEnable() {
@@ -58,6 +60,7 @@ public class Core extends JavaPlugin {
 
         initMysql();
         nameUuidFetcher = new NameUuidFetcher();
+        inventoryManager = new InventoryManager();
         registerListener();
     }
 

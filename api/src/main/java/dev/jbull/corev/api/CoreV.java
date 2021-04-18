@@ -16,16 +16,31 @@
 
 package dev.jbull.corev.api;
 
+import dev.jbull.corev.api.inventory.InventoryManager;
 import dev.jbull.corev.api.utils.NameUUID;
+import dev.jbull.corev.inventory.anvil.AnvilInventory;
 import lombok.Data;
 
-@Data
 public class CoreV {
     private static CoreV instance;
     private NameUUID nameUUID;
+    private InventoryManager inventoryManager;
 
     public static CoreV getInstance(){
         if (instance == null) instance = new CoreV();
         return instance;
+    }
+
+    public CoreV(){
+        nameUUID = new NameUUID();
+        inventoryManager = new InventoryManager();
+    }
+
+    public NameUUID getNameUuidFetcher() {
+        return nameUUID;
+    }
+
+    public InventoryManager getInventoryManager() {
+        return inventoryManager;
     }
 }

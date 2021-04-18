@@ -54,11 +54,11 @@ dev/jbull/corev/inventory/interfaces/IInventoryManager.java
  dev.jbull.corev.inventory.interfaces.IInventoryManager
 dev/jbull/corev/messages/MessageProvider.java
  dev.jbull.corev.messages.MessageProvider
-dev/jbull/corev/player/nameUuid/NameUuidFetcher.java
- dev.jbull.corev.player.nameUuid.NameUuidFetcher
-dev/jbull/corev/config/IConfig.java
- dev.jbull.corev.config.IConfig
 dev/jbull/corev/Core.java
  dev.jbull.corev.Core
 dev/jbull/corev/listener/PlayerJoinListener.java
  dev.jbull.corev.listener.PlayerJoinListener
+dev/jbull/corev/config/IConfig.java
+ dev.jbull.corev.config.IConfig
+dev/jbull/corev/player/nameUuid/NameUuidFetcher.java
+ dev.jbull.corev.player.nameUuid.NameUuidFetcher

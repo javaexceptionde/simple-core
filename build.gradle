@@ -39,7 +39,6 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'org.projectlombok:lombok:1@jar'
     implementation 'com.zaxxer:HikariCP:4.0.3@jar'
-    implementation 'org.yaml:snakeyaml:1.19-SNAPSHOT'
 }
 
 test {
