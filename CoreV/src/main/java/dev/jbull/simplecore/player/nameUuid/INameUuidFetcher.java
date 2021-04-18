@@ -20,8 +20,18 @@ import java.util.UUID;
 
 public interface INameUuidFetcher {
 
+    /**
+     * Gets the name of the Specified User from the Database by the given UUID
+     * @param uuid the UUID of the player you want to get the Name
+     * @return Returns the name of the player by his UUID
+     */
     public String getName(UUID uuid);
 
+    /**
+     * Gets the UUID of the Specified User from the Database by the given Name
+     * @param name the Name of the Player you want to get the UUID
+     * @return Returns the UUID of the player by his UUID
+     */
     public UUID getUUID(String name);
 
     public boolean hasPlayedOnNetwork(UUID uuid);
