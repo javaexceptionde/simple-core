@@ -29,10 +29,10 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
-        if (nameUuidFetcher.hasPlayedOnNetwork(player.getUniqueId())){
+        if (!nameUuidFetcher.hasPlayedOnNetwork(player.getUniqueId())){
             nameUuidFetcher.insert(player.getUniqueId(), player.getName());
         }else {
-            if (nameUuidFetcher.getName(player.getUniqueId()).equalsIgnoreCase(player.getName())){
+            if (!nameUuidFetcher.getName(player.getUniqueId()).equalsIgnoreCase(player.getName())){
                 nameUuidFetcher.update(player.getUniqueId(), player.getName());
             }
         }

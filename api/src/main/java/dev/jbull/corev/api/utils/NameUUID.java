@@ -26,10 +26,20 @@ import java.util.UUID;
 public class NameUUID  {
     private NameUuidFetcher nameUuidFetcher;
 
+    /**
+     * Gets the name of the Specified User from the Database by the given UUID
+     * @param uuid the UUID of the player you want to get the Name
+     * @return Returns the name of the player by his UUID
+     */
     public String getName(UUID uuid) {
         return nameUuidFetcher.getName(uuid);
     }
 
+    /**
+     * Gets the UUID of the Specified User from the Database by the given Name
+     * @param name the Name of the Player you want to get the UUID
+     * @return Returns the UUID of the player by his UUID
+     */
     public UUID getUUID(String name) {
         return nameUuidFetcher.getUUID(name);
     }
@@ -47,10 +57,10 @@ public class NameUUID  {
     }
 
     public void insert(UUID uuid, String name) {
-        nameUuidFetcher.update(uuid, name);
+        nameUuidFetcher.insert(uuid, name);
     }
 
     public void update(UUID uuid, String name) {
-
+        nameUuidFetcher.update(uuid, name);
     }
 }

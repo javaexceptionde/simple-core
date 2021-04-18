@@ -43,7 +43,7 @@ public class Core extends JavaPlugin {
     public void onEnable() {
         instance = this;
         scheduler = new ExecuteScheduler();
-        nameUuidFetcher = new NameUuidFetcher();
+
         getDataFolder().mkdir();
         File file = new File(getDataFolder().getPath() +  "/config.yml");
         yamlConfig = new SpigotConfig(file);
@@ -55,9 +55,10 @@ public class Core extends JavaPlugin {
             yamlConfig.addDefault("database.mysql.port", "3306");
             yamlConfig.setDefaults();
         });
-        registerListener();
-        initMysql();
 
+        initMysql();
+        nameUuidFetcher = new NameUuidFetcher();
+        registerListener();
     }
 
     @Override

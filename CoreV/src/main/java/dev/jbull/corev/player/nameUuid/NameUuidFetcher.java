@@ -16,6 +16,7 @@
 
 package dev.jbull.corev.player.nameUuid;
 
+import dev.jbull.corev.Core;
 import dev.jbull.corev.database.sql.MySQL;
 
 import java.io.BufferedReader;
@@ -26,7 +27,7 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class NameUuidFetcher implements INameUuidFetcher {
-    private MySQL mysql;
+    private MySQL mysql = Core.getInstance().getMysql();
 
     @Override
     public String getName(UUID uuid) {

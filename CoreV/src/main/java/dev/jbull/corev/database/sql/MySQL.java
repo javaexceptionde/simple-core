@@ -73,9 +73,7 @@ public class MySQL {
     }
 
     public void getResult(final String query, Callback<ResultSet> callback) {
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 if (isConnected()) {
                     try(Connection connection = hikari.getConnection()) {
                         callback.call(connection.createStatement().executeQuery(query));
@@ -84,8 +82,7 @@ public class MySQL {
                         e.printStackTrace();
                     }
                 }
-            }
-        });
+
     }
 
     public void update(final String query) {
@@ -102,9 +99,7 @@ public class MySQL {
 
     public String getString(String database, String selected, String conditionType, String condition) {
         AtomicReference<String> toReturn = new AtomicReference<>();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 try(Connection connection = hikari.getConnection()) {
                     getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "';", (result) -> {
                         try {
@@ -117,17 +112,14 @@ public class MySQL {
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
-            }
-        });
+
 
         return toReturn.get();
     }
 
     public String getStringDoubleCondition(String database, String selected, String conditionType, String condition, String conditionType1, String condition1) {
         AtomicReference<String> toReturn = new AtomicReference<>();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "' && " + conditionType1 + "= '" + condition1 + "';", (result) -> {
                     try {
                         if (!result.next() || String.valueOf(result.getString(selected)) == null) ;
@@ -138,16 +130,13 @@ public class MySQL {
 
                 });
 
-            }
-        });
+
         return toReturn.get();
     }
 
     public Integer getInt(String database, String selected, String conditionType, String condition) {
         AtomicInteger toReturn = new AtomicInteger();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "';", (result) -> {
                     try {
                         if (!result.next() || Integer.valueOf(result.getInt(selected)) == null) ;
@@ -156,8 +145,7 @@ public class MySQL {
 
                     }
                 });
-            }
-        });
+
 
 
         return toReturn.get();
@@ -165,9 +153,7 @@ public class MySQL {
 
     public Integer getIntDoubleCondition(String database, String selected, String conditionType, String condition, String conditionType1, String condition1) {
         AtomicInteger toReturn = new AtomicInteger();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "' && " + conditionType1 + "= '" + condition1 + "';", (result) -> {
                     try {
                         if (!result.next() || Integer.valueOf(result.getInt(selected)) == null) ;
@@ -176,16 +162,13 @@ public class MySQL {
 
                     }
                 });
-            }
-        });
+
         return toReturn.get();
     }
 
     public Long getLong(String database, String selected, String conditionType, String condition) {
         AtomicLong toReturn = new AtomicLong();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "';", (result) -> {
                     try {
                         if (!result.next() || Long.valueOf(result.getLong(selected)) == null) ;
@@ -194,16 +177,13 @@ public class MySQL {
 
                     }
                 });
-            }
-        });
+
         return toReturn.get();
     }
 
     public Long getLongDoubleCondition(String database, String selected, String conditionType, String condition, String conditionType1, String condition1) {
         AtomicLong toReturn = new AtomicLong();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "' && " + conditionType1 + "= '" + condition1 + "';", (result) -> {
                     try {
                         if (!result.next() || Long.valueOf(result.getLong(selected)) == null) ;
@@ -213,16 +193,13 @@ public class MySQL {
                     }
 
                 });
-            }
-        });
+
         return toReturn.get();
     }
 
     public Boolean getBoolean(String database, String selected, String conditionType, String condition) {
         AtomicBoolean toReturn = new AtomicBoolean(false);
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "';", (result) -> {
                     try {
                         if (!result.next() || Boolean.valueOf(result.getBoolean(selected)) == null) ;
@@ -232,16 +209,13 @@ public class MySQL {
                     }
 
                 });
-            }
-        });
+
         return toReturn.get();
     }
 
     public Boolean getBooleanDoubleCondition(String database, String selected, String conditionType, String condition, String conditionType1, String condition1) {
         AtomicBoolean toReturn = new AtomicBoolean(false);
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "' && " + conditionType1 + "= '" + condition1 + "';", (result) -> {
                     try {
                         if (!result.next() || Boolean.valueOf(result.getBoolean(selected)) == null) ;
@@ -251,16 +225,13 @@ public class MySQL {
                     }
 
                 });
-            }
-        });
+
         return toReturn.get();
     }
 
-    public Boolean entryExists(String database, String conditiontype, Object condition) {
+    public boolean entryExists(String database, String conditiontype, Object condition) {
         AtomicBoolean toReturn = new AtomicBoolean(false);
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT * FROM " + database + " WHERE " + conditiontype + "= '" + condition + "';", (result) -> {
                     try {
                         if (result.next()) {
@@ -270,35 +241,28 @@ public class MySQL {
 
                     }
                 });
-            }
-        });
+
         return toReturn.get();
     }
 
     public Boolean entryExistsDoubleCondition(String database, String conditiontype, Object condition, String conditiontype1, Object condition1) {
         AtomicBoolean toReturn = new AtomicBoolean(false);
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT * FROM " + database + " WHERE " + conditiontype + "= '" + condition + "' && " + conditiontype1 + "= '" + condition1 + "';", (result) -> {
                     try {
                         if (result.next()) {
                             toReturn.set(result.getString(conditiontype) != null);
                         }
-                    }catch (SQLException exception){
+                    } catch (SQLException exception) {
 
                     }
                 });
-            }
-        });
         return toReturn.get();
     }
 
     public Object getObject(String database, String selected, String conditionType, String condition) {
         AtomicReference toReturn = new AtomicReference();
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 getResult("SELECT " + selected + " FROM " + database + " WHERE " + conditionType + "= '" + condition + "';", result -> {
                     try {
                         if (!result.next() || (result.getObject(selected)) == null) ;
@@ -307,8 +271,6 @@ public class MySQL {
 
                     }
                 });
-            }
-        });
         return toReturn.get();
     }
 }

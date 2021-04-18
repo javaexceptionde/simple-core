@@ -28,8 +28,8 @@ dev/jbull/corev/utils/ExecuteScheduler.java
  dev.jbull.corev.utils.ExecuteScheduler
  dev.jbull.corev.utils.ExecuteScheduler$1
  dev.jbull.corev.utils.ExecuteScheduler$2
-dev/jbull/corev/listener/PlayerJoinListener.java
- dev.jbull.corev.listener.PlayerJoinListener
+dev/jbull/corev/database/sql/MySQL.java
+ dev.jbull.corev.database.sql.MySQL
 dev/jbull/corev/database/mogodb/MongoDatabase.java
  dev.jbull.corev.database.mogodb.MongoDatabase
 dev/jbull/corev/inventory/abstracts/InventoryAbstract.java
@@ -44,8 +44,8 @@ dev/jbull/corev/inventory/anvil/AnvilSlot.java
  dev.jbull.corev.inventory.anvil.AnvilSlot
 dev/jbull/corev/inventory/InventoryManager.java
  dev.jbull.corev.inventory.InventoryManager
-dev/jbull/corev/config/IConfig.java
- dev.jbull.corev.config.IConfig
+dev/jbull/corev/utils/IThrowableCallback.java
+ dev.jbull.corev.utils.IThrowableCallback
 dev/jbull/corev/config/SpigotConfig.java
  dev.jbull.corev.config.SpigotConfig
 dev/jbull/corev/utils/IThrowableHandler.java
@@ -54,23 +54,11 @@ dev/jbull/corev/inventory/interfaces/IInventoryManager.java
  dev.jbull.corev.inventory.interfaces.IInventoryManager
 dev/jbull/corev/messages/MessageProvider.java
  dev.jbull.corev.messages.MessageProvider
-dev/jbull/corev/utils/IThrowableCallback.java
- dev.jbull.corev.utils.IThrowableCallback
-dev/jbull/corev/Core.java
- dev.jbull.corev.Core
-dev/jbull/corev/database/sql/MySQL.java
- dev.jbull.corev.database.sql.MySQL
- dev.jbull.corev.database.sql.MySQL$1
- dev.jbull.corev.database.sql.MySQL$10
- dev.jbull.corev.database.sql.MySQL$11
- dev.jbull.corev.database.sql.MySQL$12
- dev.jbull.corev.database.sql.MySQL$2
- dev.jbull.corev.database.sql.MySQL$3
- dev.jbull.corev.database.sql.MySQL$4
- dev.jbull.corev.database.sql.MySQL$5
- dev.jbull.corev.database.sql.MySQL$6
- dev.jbull.corev.database.sql.MySQL$7
- dev.jbull.corev.database.sql.MySQL$8
- dev.jbull.corev.database.sql.MySQL$9
 dev/jbull/corev/player/nameUuid/NameUuidFetcher.java
  dev.jbull.corev.player.nameUuid.NameUuidFetcher
+dev/jbull/corev/config/IConfig.java
+ dev.jbull.corev.config.IConfig
+dev/jbull/corev/Core.java
+ dev.jbull.corev.Core
+dev/jbull/corev/listener/PlayerJoinListener.java
+ dev.jbull.corev.listener.PlayerJoinListener
