@@ -1,7 +1,8 @@
 dev/jbull/corev/database/mogodb/IMongoDB.java
  dev.jbull.corev.database.mogodb.IMongoDB
-dev/jbull/corev/events/CustomEvent.java
- dev.jbull.corev.events.CustomEvent
+dev/jbull/corev/Core.java
+ dev.jbull.corev.Core
+ dev.jbull.corev.Core$1
 dev/jbull/corev/scoreboard/Scoreboard.java
  dev.jbull.corev.scoreboard.Scoreboard
 dev/jbull/corev/events/AnvilClickEvent.java
@@ -28,8 +29,8 @@ dev/jbull/corev/utils/ExecuteScheduler.java
  dev.jbull.corev.utils.ExecuteScheduler
  dev.jbull.corev.utils.ExecuteScheduler$1
  dev.jbull.corev.utils.ExecuteScheduler$2
-dev/jbull/corev/listener/PlayerJoinListener.java
- dev.jbull.corev.listener.PlayerJoinListener
+dev/jbull/corev/player/nameUuid/NameUuidFetcher.java
+ dev.jbull.corev.player.nameUuid.NameUuidFetcher
 dev/jbull/corev/database/mogodb/MongoDatabase.java
  dev.jbull.corev.database.mogodb.MongoDatabase
 dev/jbull/corev/inventory/abstracts/InventoryAbstract.java
@@ -56,9 +57,6 @@ dev/jbull/corev/messages/MessageProvider.java
  dev.jbull.corev.messages.MessageProvider
 dev/jbull/corev/utils/IThrowableCallback.java
  dev.jbull.corev.utils.IThrowableCallback
-dev/jbull/corev/Core.java
- dev.jbull.corev.Core
- dev.jbull.corev.Core$1
 dev/jbull/corev/database/sql/MySQL.java
  dev.jbull.corev.database.sql.MySQL
  dev.jbull.corev.database.sql.MySQL$1
@@ -73,5 +71,7 @@ dev/jbull/corev/database/sql/MySQL.java
  dev.jbull.corev.database.sql.MySQL$7
  dev.jbull.corev.database.sql.MySQL$8
  dev.jbull.corev.database.sql.MySQL$9
-dev/jbull/corev/player/nameUuid/NameUuidFetcher.java
- dev.jbull.corev.player.nameUuid.NameUuidFetcher
+dev/jbull/corev/listener/PlayerJoinListener.java
+ dev.jbull.corev.listener.PlayerJoinListener
+dev/jbull/corev/events/CustomEvent.java
+ dev.jbull.corev.events.CustomEvent
