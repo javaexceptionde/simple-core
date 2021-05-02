@@ -17,19 +17,29 @@
 package dev.jbull.simplecore.config;
 
 import dev.jbull.simplecore.utils.Callback;
+import lombok.Getter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.YamlConfiguration;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Set;
 
 public class SpigotConfig implements IConfig {
+    @Getter
     private YamlConfiguration configuration;
     private File file;
     private boolean load = false;
 
     public SpigotConfig(File file){
+        if (!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException exception) {
+                exception.printStackTrace();
+            }
+        }
         configuration = new YamlConfiguration();
         this.file = file;
     }
@@ -39,11 +49,15 @@ public class SpigotConfig implements IConfig {
 
             try {
                 configuration.load(file);
-            } catch (IOException e) {
-                e.printStackTrace();
+                logger.debug("The Config was successful loaded");
+            } catch (FileNotFoundException e) {
+                logger.debug("The Config can't be loaded check if the File exists\nThe following error occurred " + e.getCause());
             } catch (InvalidConfigurationException e) {
-                e.printStackTrace();
+                logger.debug("The Config can't be loaded because the Configuration is Invalid\nThe following error occurred " + e.getCause());
+            }catch (IOException e){
+                logger.debug("The Config can't be loaded. The following error occurred " +  e.getCause());
             }
+
             callback.call(this);
             load = false;
 
@@ -70,7 +84,7 @@ public class SpigotConfig implements IConfig {
             try {
                 configuration.save(file);
             } catch (IOException e) {
-                e.printStackTrace();
+                logger.debug("The Config couldn't be saved. The following Error occurred " + e.getCause());
             }
         });
     }
@@ -145,12 +159,4 @@ public class SpigotConfig implements IConfig {
         return configuration.getConfigurationSection(key).getKeys(deep);
     }
 
-    @Override
-    public void awaitReady(Callback<IConfig> callback) {
-        scheduler.schedule(result -> {
-            if (!load){
-                callback.call(this);
-            }
-        }, 500);
-    }
 }

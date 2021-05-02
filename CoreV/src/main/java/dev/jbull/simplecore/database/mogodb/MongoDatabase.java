@@ -16,18 +16,25 @@
 
 package dev.jbull.simplecore.database.mogodb;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
+import com.mongodb.async.client.MongoClient;
+import com.mongodb.async.client.MongoClients;
+import com.mongodb.async.client.MongoCollection;
+import com.mongodb.client.model.Filters;
 import org.bson.Document;
 
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.concurrent.atomic.AtomicReference;
+
+//UNSTABLE
 public class MongoDatabase implements IMongoDB {
-    private MongoClient client;
-    private com.mongodb.client.MongoDatabase database;
+    private com.mongodb.async.client.MongoClient client;
+    private com.mongodb.async.client.MongoDatabase database;
 
     @Override
     public void connect() {
-        client = new MongoClient("127.0.0.1");
-        database = client.getDatabase("");
+        client = MongoClients.create("mongodb://localhost");
+        database = client.getDatabase("Core");
     }
 
     @Override
@@ -36,7 +43,7 @@ public class MongoDatabase implements IMongoDB {
     }
 
     @Override
-    public com.mongodb.client.MongoDatabase getDatabase() {
+    public com.mongodb.async.client.MongoDatabase getDatabase() {
         return database;
     }
 
@@ -44,4 +51,63 @@ public class MongoDatabase implements IMongoDB {
     public MongoCollection<Document> getCollection(String collection) {
         return database.getCollection(collection);
     }
+
+    @Override
+    public void createCollection(String collection) {
+        getDatabase().createCollection(collection, (result, t) -> {
+            t.printStackTrace();
+        });
+    }
+
+    @Override
+    public void insertOne(String collection, Document document) {
+        getDatabase().getCollection(collection).insertOne(document, (result, t) -> {
+            t.printStackTrace();
+        });
+    }
+
+    @Override
+    public void updateOne(String collection, String key, String value, Document update) {
+        getDatabase().getCollection(collection).updateOne(Filters.eq(key, value), update, (result, t) -> {
+            t.printStackTrace();
+        });
+    }
+
+    @Override
+    public void updateOne(String collection, Document query, Document update) {
+        getDatabase().getCollection(collection).updateOne(Filters.eq(query), update, (result, t) -> {
+            t.printStackTrace();
+        });
+    }
+
+    @Override
+    public Document getDocument(String collection, Document query) {
+        AtomicReference<Document> toReturn = new AtomicReference<>();
+        getCollection(collection).find(Filters.eq(query)).first((result, t) -> {
+            t.printStackTrace();
+            toReturn.set(result);
+        });
+        return toReturn.get();
+    }
+
+    @Override
+    public boolean contains(String collection, String key, Object value) {
+        return contains(collection, new Document(key, value));
+    }
+
+    @Override
+    public boolean contains(String collection, Map<String, Object> values) {
+        return contains(collection, new Document(values));
+    }
+
+    @Override
+    public boolean contains(String collection, Document query) {
+        AtomicLong toReturn = new AtomicLong();
+        getCollection(collection).count(query, (result, t) -> {
+            t.printStackTrace();
+            toReturn.set(result);
+        });
+        return toReturn.get() != 0;
+    }
+
 }

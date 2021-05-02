@@ -21,7 +21,9 @@ import com.zaxxer.hikari.HikariDataSource;
 import dev.jbull.simplecore.utils.Callback;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -51,8 +53,8 @@ public class MySQL {
         config.setPassword(this.pw);
         config.setMaximumPoolSize(Runtime.getRuntime().availableProcessors());
         config.setMinimumIdle(3);
-        config.setIdleTimeout(Duration.ofMinutes(5).toMillis());
-        config.setMaxLifetime(Duration.ofMinutes(5).toMillis());
+        config.setIdleTimeout(Duration.ofMinutes(1).toMillis());
+        config.setMaxLifetime(Duration.ofMinutes(10).toMillis());
         config.setConnectionTimeout(30000);
         config.setValidationTimeout(30000);
         hikari = new HikariDataSource(config);
@@ -71,27 +73,29 @@ public class MySQL {
     }
 
     public void getResult(final String query, Callback<ResultSet> callback) {
-
+        scheduler.schedule(new Runnable() {
+            @Override
+            public void run() {
                 if (isConnected()) {
                     try(Connection connection = hikari.getConnection()) {
                         callback.call(connection.createStatement().executeQuery(query));
-
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
                 }
+            }
+        });
+
 
     }
 
     public void update(final String query) {
 
-
-                    try(Connection connection = hikari.getConnection()) {
-                        connection.createStatement().executeUpdate(query);
-                    } catch (SQLException e) {
-                        e.printStackTrace();
-                    }
-
+                try(Connection connection = hikari.getConnection()) {
+                    connection.createStatement().executeUpdate(query);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
 
     }
 

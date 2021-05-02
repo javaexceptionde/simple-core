@@ -16,10 +16,11 @@
 
 package dev.jbull.simplecore.database.mogodb;
 
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.async.client.MongoClient;
+import com.mongodb.async.client.MongoCollection;
 import org.bson.Document;
+
+import java.util.Map;
 
 public interface IMongoDB {
 
@@ -38,7 +39,7 @@ public interface IMongoDB {
      * Gets the Database
      * @return instance of current {@link MongoDatabase}
      */
-    MongoDatabase getDatabase();
+    com.mongodb.async.client.MongoDatabase getDatabase();
 
     /**
      * Gets a MongoCollection by specified name
@@ -46,4 +47,37 @@ public interface IMongoDB {
      * @return instance of the specified {@link MongoCollection}
      */
     MongoCollection<Document> getCollection(String collection);
+
+    /**
+     * Creates a MongoCollection.
+     * @param collection the Name of the MongoCollection
+     */
+    void createCollection(String collection);
+
+    /**
+     * Insert one Document in a specified Collection
+     * @param collection the Collection where the Document should be inserted
+     * @param document the Document which should be inserted
+     */
+    void insertOne(String collection, Document document);
+
+    /**
+     * Updates one Document.
+     * @param collection The Collection where the Document should be updated.
+     * @param key The Key to identify the Document
+     * @param value The Value to identify the Document
+     * @param update The Values which should be updated
+     */
+    void updateOne(String collection, String key, String value, Document update);
+
+
+    void updateOne(String collection, Document query, Document update);
+
+    Document getDocument(String collection, Document query);
+
+    boolean contains(String collection, String key, Object value);
+
+    boolean contains(String collection, Map<String, Object> values);
+
+    boolean contains(String collection, Document query);
 }

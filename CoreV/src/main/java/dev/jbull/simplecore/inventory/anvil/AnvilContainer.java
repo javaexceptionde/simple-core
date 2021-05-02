@@ -16,7 +16,9 @@
 
 package dev.jbull.simplecore.inventory.anvil;
 
-import net.minecraft.server.v1_8_R3.*;
+import net.minecraft.server.v1_8_R3.BlockPosition;
+import net.minecraft.server.v1_8_R3.ContainerAnvil;
+import net.minecraft.server.v1_8_R3.EntityHuman;
 
 public class AnvilContainer extends ContainerAnvil {
     public AnvilContainer(EntityHuman entityhuman) {

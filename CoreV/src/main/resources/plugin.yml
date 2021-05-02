@@ -1,5 +1,5 @@
 name: SimpleCore
-main: dev.jbull.simplecore.Core
+main: dev.jbull.simplecore.loader.CoreSpigot
 version: 1.0.1-BETA
 
 commands:

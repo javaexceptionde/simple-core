@@ -40,7 +40,7 @@ public class InventoryAbstract implements IInventory {
     }
 
     @Override
-    public ItemStack getItem(int size) {
+    public ItemStack getItem(int slot) {
         return slots.get(size);
     }
 

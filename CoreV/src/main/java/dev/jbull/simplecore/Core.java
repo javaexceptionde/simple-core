@@ -17,22 +17,21 @@
 package dev.jbull.simplecore;
 
 import dev.jbull.simplecore.config.IConfig;
-import dev.jbull.simplecore.config.SpigotConfig;
+import dev.jbull.simplecore.database.mogodb.MongoDatabase;
+import dev.jbull.simplecore.database.redis.Jedis;
 import dev.jbull.simplecore.database.sql.MySQL;
 import dev.jbull.simplecore.inventory.InventoryManager;
-import dev.jbull.simplecore.listener.InventoryClickListener;
-import dev.jbull.simplecore.listener.InventoryCloseListener;
-import dev.jbull.simplecore.listener.PlayerJoinListener;
 import dev.jbull.simplecore.player.nameUuid.NameUuidFetcher;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
 import lombok.Getter;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
+import org.bson.Document;
 
-import java.io.File;
+import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Getter
-public class Core extends JavaPlugin {
+public class Core {
     @Getter
     private static Core instance;
     private ExecuteScheduler scheduler;
@@ -40,47 +39,48 @@ public class Core extends JavaPlugin {
     private NameUuidFetcher nameUuidFetcher;
     private IConfig yamlConfig;
     private InventoryManager inventoryManager;
+    private Jedis jedis;
+    private final dev.jbull.simplecore.logger.Logger logger;
+    private final boolean debug = false;
 
-    @Override
-    public void onEnable() {
+    public Core(IConfig yamlConfig, Logger logger){
         instance = this;
+        this.logger = new dev.jbull.simplecore.logger.Logger(logger);
         scheduler = new ExecuteScheduler();
+    }
 
-        getDataFolder().mkdir();
-        File file = new File(getDataFolder().getPath() +  "/config.yml");
-        yamlConfig = new SpigotConfig(file);
+    public void load(){
+        this.yamlConfig = yamlConfig;
         yamlConfig.load(result -> {
+            yamlConfig.addDefault("debug", false);
+            yamlConfig.addDefault("bungeecord", false);
             yamlConfig.addDefault("database.mysql.host", "127.0.0.1");
             yamlConfig.addDefault("database.mysql.user", "root");
             yamlConfig.addDefault("database.mysql.password", "Test1234");
             yamlConfig.addDefault("database.mysql.database", "Core");
             yamlConfig.addDefault("database.mysql.port", "3306");
+            yamlConfig.addDefault("database.redis.host", "127.0.0.1");
+            yamlConfig.addDefault("database.redis.port", 6379);
+            yamlConfig.addDefault("database.redis.password", "");
+            yamlConfig.addDefault("database.redis.use", false);
             yamlConfig.setDefaults();
         });
-
-        initMysql();
+        if (yamlConfig.getBoolean("database.redis.use")){
+            jedis = new Jedis();
+        }
         nameUuidFetcher = new NameUuidFetcher();
         inventoryManager = new InventoryManager();
-        registerListener();
-    }
-
-    @Override
-    public void onDisable() {
-
-    }
-
-    public void registerListener(){
-        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
-        Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
-    }
-
-    public void initMysql(){
-
         this.mysql = new MySQL(yamlConfig.getString("database.mysql.host"), yamlConfig.getString("database.mysql.user")
                 , yamlConfig.getString("database.mysql.password"), yamlConfig.getString("database.mysql.database")
                 , yamlConfig.getString("database.mysql.port"));
-        System.out.println("d");
         mysql.update("CREATE TABLE IF NOT EXISTS nameuuid(UUID VARCHAR(64), NAME TEXT)");
+        mysql.update("CREATE TABLE IF NOT EXISTS language(UUID VARCHAR(64), LANGUAGE TEXT)");
+        MongoDatabase mongoDatabase = new  MongoDatabase();
+        mongoDatabase.connect();
+        UUID uuid = UUID.randomUUID();
+        mongoDatabase.insertOne("L", new Document().append("UUID", uuid.toString()));
+        System.out.println(mongoDatabase.getDocument("L", new Document().append("UUID", uuid.toString())).getString("UUID"));
+
     }
+
 }

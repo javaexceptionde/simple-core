@@ -17,7 +17,10 @@
 package dev.jbull.simplecore.inventory.anvil;
 
 import dev.jbull.simplecore.inventory.abstracts.InventoryAbstract;
-import net.minecraft.server.v1_8_R3.*;
+import net.minecraft.server.v1_8_R3.ChatMessage;
+import net.minecraft.server.v1_8_R3.EntityPlayer;
+import net.minecraft.server.v1_8_R3.PacketPlayOutCloseWindow;
+import net.minecraft.server.v1_8_R3.PacketPlayOutOpenWindow;
 import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;

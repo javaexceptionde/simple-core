@@ -17,5 +17,5 @@
 package dev.jbull.simplecore.utils;
 
 public interface Callback<V extends Object> {
-    public void call(V result);
+    public void call(V callBack);
 }

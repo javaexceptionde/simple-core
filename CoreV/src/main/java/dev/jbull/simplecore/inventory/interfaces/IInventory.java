@@ -21,11 +21,29 @@ import org.bukkit.inventory.ItemStack;
 
 public interface IInventory {
 
+    /**
+     * Sets an Item to the specified Slot
+     * @param slot the slot where the Item should be set on
+     * @param itemStack the ItemStack which defines the Item
+     */
     void setItem(int slot, ItemStack itemStack);
 
-    ItemStack getItem(int size);
+    /**
+     * Gets an ItemStack by the Slot
+     * @param slot the slot where the Item should get form
+     * @return The ItemStack of the Slot you selected
+     */
+    ItemStack getItem(int slot);
 
+    /**
+     * Opens the Defined Inventory to a Player
+     * @param player The Player where the Inventory should be opened to
+     */
     void open(Player player);
 
+    /**
+     * Closes the Inventory to a Player
+     * @param player The Player where the Inventory should bei closes
+     */
     void close(Player player);
 }

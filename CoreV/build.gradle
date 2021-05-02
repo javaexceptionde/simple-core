@@ -20,10 +20,10 @@ plugins {
 
 group 'dev.jbull'
 version '1.0-SNAPSHOT'
+jar {
 
-jar{
     from {
-        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.filter{ it.exists() }.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
@@ -42,17 +42,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    compile 'org.spigotmc:spigot:1.8.8@jar'
+    implementation 'org.spigotmc:spigot:1.8.8@jar'
     compile 'org.projectlombok:lombok:1@jar'
     compile 'com.zaxxer:HikariCP:4.0.3@jar'
-    compile 'me.carleslc.Simple-YAML:Simple-Yaml:1.7.2'
-    compile("org.mongodb:mongo-java-driver:3.4.1")
     compile("org.mongodb:mongodb-driver-async:3.4.1")
-    compile 'org.yaml:snakeyaml:1.19-SNAPSHOT'
     implementation 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
     annotationProcessor 'org.projectlombok:lombok:1@jar'
+    implementation  'net.md-5:bungeecord:1.16'
+    implementation group: 'redis.clients', name: 'jedis', version: '2.8.0'
 }
 
 test {
