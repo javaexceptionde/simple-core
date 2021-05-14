@@ -1,0 +1,4 @@
+name: SimpleCore
+main: dev.jbull.simplecore.loader.CoreBungee
+version: 1.0.1-BETA
+author: JavaExceptionDE
