@@ -1,0 +1,64 @@
+/*
+ * Copyright  (c) 2021.  Jonathan Bull Contact at jonathan@jbull.dev
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package dev.jbull.simplecore.player;
+
+import dev.jbull.simplecore.Core;
+import dev.jbull.simplecore.database.sql.MySQL;
+import dev.jbull.simplecore.messages.Language;
+import dev.jbull.simplecore.player.nameUuid.NameUuidFetcher;
+
+import java.util.UUID;
+
+public class SQLPlayerManager implements IPlayerManager {
+    private MySQL mysql = Core.getInstance().getMysql();
+    private NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
+
+    @Override
+    public boolean playerExists(UUID uuid) {
+        return mysql.entryExists("players", "UUID", uuid.toString());
+    }
+
+    @Override
+    public boolean playerExists(String name) {
+        return mysql.entryExists("players", "NAME", name);
+    }
+
+    @Override
+    public CorePlayer getPlayer(UUID uuid) {
+        if (!playerExists(uuid))return null;
+        String name = mysql.getString("players", "NAME","UUID", uuid.toString());
+        CorePlayer corePlayer = new CorePlayer(name, uuid, Language.GERMAN.toString());
+        return corePlayer;
+    }
+
+    @Override
+    public UUID getUUID(String name) {
+        return nameUuidFetcher.getUUID(name);
+    }
+
+    @Override
+    public String getName(UUID uuid) {
+        return nameUuidFetcher.getName(uuid);
+    }
+
+    @Override
+    public void updateLanguage(CorePlayer player, Language language) {
+        mysql.update("UPDATE players SET Language= '" + language + "' WHERE UUID='" + player.getUuid() + "'");
+    }
+
+
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.system.module.type="sourceSet" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <output url="file://$MODULE_DIR$/../../../api/build/classes/java/main" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../api/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../api/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../api/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="CoreV.CoreV.main" />
+    <orderEntry type="library" name="Gradle: org.spigotmc:spigot:1.8.8" level="project" />
+    <orderEntry type="library" name="Gradle: org.projectlombok:lombok:1" level="project" />
+    <orderEntry type="library" name="Gradle: com.zaxxer:HikariCP:4.0.3" level="project" />
+    <orderEntry type="library" name="Gradle: me.carleslc.Simple-YAML:Simple-Yaml:1.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:mongo-java-driver:3.4.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:mongodb-driver-async:3.4.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.26" level="project" />
+    <orderEntry type="library" name="Gradle: me.carleslc.Simple-YAML:Simple-Configuration:1.7.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:mongodb-driver-core:3.4.1" level="project" />
+    <orderEntry type="library" name="Gradle: org.mongodb:bson:3.4.1" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.mariadb.jdbc:mariadb-java-client:2.7.2" level="project" />
+  </component>
+</module>

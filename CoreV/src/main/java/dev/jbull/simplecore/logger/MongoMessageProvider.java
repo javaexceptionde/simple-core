@@ -21,12 +21,13 @@ import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.database.mogodb.MongoDatabase;
 import dev.jbull.simplecore.messages.IMessageProvider;
 
+import java.util.UUID;
+
 public class MongoMessageProvider implements IMessageProvider {
     MongoDatabase database = null;
 
     @Override
     public void createMessage(String messageKey, String message, String language) {
-        if (database.)
     }
 
     @Override
@@ -42,5 +43,10 @@ public class MongoMessageProvider implements IMessageProvider {
     @Override
     public boolean messageExists(String messageKey, String language) {
         return false;
+    }
+
+    @Override
+    public String getMessage(String messageKey, UUID uuid) {
+        return null;
     }
 }

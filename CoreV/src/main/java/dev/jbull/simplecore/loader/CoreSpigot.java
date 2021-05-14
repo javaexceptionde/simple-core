@@ -23,6 +23,7 @@ import dev.jbull.simplecore.license.License;
 import dev.jbull.simplecore.listener.InventoryClickListener;
 import dev.jbull.simplecore.listener.InventoryCloseListener;
 import dev.jbull.simplecore.listener.PlayerJoinListener;
+import dev.jbull.simplecore.messaging.MessageHandler;
 import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -41,22 +42,12 @@ public class CoreSpigot extends JavaPlugin {
     public void onEnable() {
         instance = this;
         getDataFolder().mkdirs();
+        File file1 = new File(getDataFolder().getPath() +  "/config.yml");
+        yamlConfig = new SpigotConfig(file1);
         Core core = new Core(yamlConfig, Bukkit.getLogger());
-        File file = new File(getDataFolder().getPath() +  "/license.yml");
-        licenseConfig = new SpigotConfig(file);
-        licenseConfig.addDefault("license", "123456789");
-        licenseConfig.setDefaults();
-        license = new License();
-        if (!license.checkLicense(licenseConfig.getString("license"))) {
-            getLogger().info("Die Lizenz ist ungültig. ");
-            getPluginLoader().disablePlugin(this);
-        }else {
-            File file1 = new File(getDataFolder().getPath() +  "/config.yml");
-            yamlConfig = new SpigotConfig(file1);
+        core.load();
+        registerListener(yamlConfig.getBoolean("bungeecord"));
 
-            core.load();
-            registerListener(yamlConfig.getBoolean("bungeecord"));
-        }
     }
 
     @Override
@@ -65,7 +56,6 @@ public class CoreSpigot extends JavaPlugin {
     }
 
     public void registerListener(boolean bungeecord){
-        System.out.println("OMG ES GEHT");
         if (!bungeecord)Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);

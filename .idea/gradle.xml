@@ -10,7 +10,6 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/CoreV" />
-            <option value="$PROJECT_DIR$/api" />
           </set>
         </option>
       </GradleProjectSettings>

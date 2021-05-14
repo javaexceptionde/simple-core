@@ -16,14 +16,20 @@
 
 package dev.jbull.simplecore.scoreboard;
 
-import com.sun.xml.internal.fastinfoset.util.StringArray;
+
+import dev.jbull.simplecore.Core;
+import net.minecraft.server.v1_8_R3.IChatBaseComponent;
+import net.minecraft.server.v1_8_R3.PacketPlayOutPlayerListHeaderFooter;
+import org.apache.commons.lang3.Validate;
 import org.bukkit.Bukkit;
+import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.DisplaySlot;
 import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Team;
 
 import javax.print.DocFlavor;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,13 +44,24 @@ public class Scoreboard implements IScoreboard{
     }
 
     @Override
-    public void setTabHeader(String header) {
+    public void setFooterAndHeader(String header, String footer, Player player) {
+        Validate.notNull(header);
+        Validate.notNull(footer);
+        Validate.notNull(player);
+        IChatBaseComponent tabTitle = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + header+ "\"}");
+        IChatBaseComponent tabSubTitle = IChatBaseComponent.ChatSerializer.a("{\"text\":\"" + footer + "\"}");
 
-    }
+        PacketPlayOutPlayerListHeaderFooter packet = new PacketPlayOutPlayerListHeaderFooter(tabTitle);
 
-    @Override
-    public void setFooter(String footer) {
-
+        try {
+            Field field = packet.getClass().getDeclaredField("b");
+            field.setAccessible(true);
+            field.set(packet, tabSubTitle);
+        } catch (Exception e) {
+            Core.getInstance().getLogger().debug("A Exception was thrown while set Accessible in Scoreboard class. The following Exception was thrown: " + e.getMessage());
+        } finally {
+            ((CraftPlayer)player).getHandle().playerConnection.sendPacket(packet);
+        }
     }
 
     @Override
@@ -74,12 +91,11 @@ public class Scoreboard implements IScoreboard{
     @Override
     public void addTabPrefixTeam(String team, String prefix) {
         scoreboard.registerNewTeam(team).setPrefix(prefix);
-        objective.
     }
 
     @Override
     public void setTabPrefixPlayer(String team, Player player) {
-
+        scoreboard.getTeam(team).addEntry(player.getName());
     }
 
     public String[] split(String display){

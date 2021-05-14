@@ -20,12 +20,21 @@ import dev.jbull.simplecore.config.IConfig;
 import dev.jbull.simplecore.database.mogodb.MongoDatabase;
 import dev.jbull.simplecore.database.redis.Jedis;
 import dev.jbull.simplecore.database.sql.MySQL;
+import dev.jbull.simplecore.events.ListenerList;
 import dev.jbull.simplecore.inventory.InventoryManager;
+import dev.jbull.simplecore.listener.ChannelMessageListener;
+import dev.jbull.simplecore.messaging.MessageHandler;
+import dev.jbull.simplecore.player.IPlayerManager;
+import dev.jbull.simplecore.player.SQLPlayerManager;
 import dev.jbull.simplecore.player.nameUuid.NameUuidFetcher;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
+import io.nats.client.Connection;
+import io.nats.client.Nats;
 import lombok.Getter;
 import org.bson.Document;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -42,15 +51,30 @@ public class Core {
     private Jedis jedis;
     private final dev.jbull.simplecore.logger.Logger logger;
     private final boolean debug = false;
+    private Connection nc;
+    private ListenerList listenerList;
+    private IPlayerManager playerManager;
+    private MessageHandler messageHandler;
 
     public Core(IConfig yamlConfig, Logger logger){
+        try {
+            nc = Nats.connect("nats://localhost:4222");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        listenerList = new ListenerList();
+        listenerList.add(new ChannelMessageListener());
         instance = this;
         this.logger = new dev.jbull.simplecore.logger.Logger(logger);
         scheduler = new ExecuteScheduler();
+        this.yamlConfig = yamlConfig;
+
+
     }
 
     public void load(){
-        this.yamlConfig = yamlConfig;
         yamlConfig.load(result -> {
             yamlConfig.addDefault("debug", false);
             yamlConfig.addDefault("bungeecord", false);
@@ -68,19 +92,15 @@ public class Core {
         if (yamlConfig.getBoolean("database.redis.use")){
             jedis = new Jedis();
         }
-        nameUuidFetcher = new NameUuidFetcher();
-        inventoryManager = new InventoryManager();
+
         this.mysql = new MySQL(yamlConfig.getString("database.mysql.host"), yamlConfig.getString("database.mysql.user")
                 , yamlConfig.getString("database.mysql.password"), yamlConfig.getString("database.mysql.database")
                 , yamlConfig.getString("database.mysql.port"));
         mysql.update("CREATE TABLE IF NOT EXISTS nameuuid(UUID VARCHAR(64), NAME TEXT)");
         mysql.update("CREATE TABLE IF NOT EXISTS language(UUID VARCHAR(64), LANGUAGE TEXT)");
-        MongoDatabase mongoDatabase = new  MongoDatabase();
-        mongoDatabase.connect();
-        UUID uuid = UUID.randomUUID();
-        mongoDatabase.insertOne("L", new Document().append("UUID", uuid.toString()));
-        System.out.println(mongoDatabase.getDocument("L", new Document().append("UUID", uuid.toString())).getString("UUID"));
-
+        playerManager = new SQLPlayerManager();
+        nameUuidFetcher = new NameUuidFetcher();
+        inventoryManager = new InventoryManager();
     }
 
 }

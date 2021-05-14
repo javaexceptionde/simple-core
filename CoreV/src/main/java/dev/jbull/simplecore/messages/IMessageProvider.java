@@ -16,6 +16,8 @@
 
 package dev.jbull.simplecore.messages;
 
+import java.util.UUID;
+
 public interface IMessageProvider {
 
     void createMessage(String messageKey, String message, String language);
@@ -25,4 +27,6 @@ public interface IMessageProvider {
     void updateMessage(String messageKey, String newMessage, String language);
 
     boolean messageExists(String messageKey, String language);
+
+    String getMessage(String messageKey, UUID uuid);
 }

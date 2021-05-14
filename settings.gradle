@@ -15,6 +15,5 @@
  */
 
 rootProject.name = 'CoreV'
-include 'api'
 include 'CoreV'
 

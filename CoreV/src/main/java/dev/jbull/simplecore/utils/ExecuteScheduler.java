@@ -31,9 +31,9 @@ public class ExecuteScheduler {
 
     }
 
-    public void schedule(Callback<Runnable> handler){
+    public  Future<?> schedule(Callback<Runnable> handler){
         try {
-            executor.submit(new Runnable() {
+            return executor.submit(new Runnable() {
                 @Override
                 public void run() {
                     handler.call(this);
@@ -42,15 +42,16 @@ public class ExecuteScheduler {
         }catch (Throwable throwable){
             throwable.printStackTrace();
         }
+        return null;
     }
 
-    public <T> Future<?> schedule(Runnable runnable, long delay) {
+    public <T> ScheduledFuture<?> schedule(Runnable runnable, long delay) {
         return scheduledExecutorService.schedule(runnable, delay, TimeUnit.MILLISECONDS);
     }
 
-    public void schedule(Callback<Runnable> handler, long delay){
+    public ScheduledFuture<?> schedule(Callback<Runnable> handler, long delay){
         try {
-            scheduledExecutorService.schedule(new Runnable() {
+            return scheduledExecutorService.schedule(new Runnable() {
                 @Override
                 public void run() {
                     handler.call(this);
@@ -59,6 +60,7 @@ public class ExecuteScheduler {
         }catch (Throwable throwable){
             throwable.printStackTrace();
         }
+        return null;
     }
 
     public <T> Future<?> schedule(Runnable runnable, long delay, long interval) {
@@ -72,5 +74,9 @@ public class ExecuteScheduler {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ExecutorService getExecutor() {
+        return executor;
     }
 }

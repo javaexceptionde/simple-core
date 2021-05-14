@@ -24,11 +24,16 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
 public class PlayerJoinListener implements Listener {
-    private NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
+
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
+        NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
+        System.out.println(nameUuidFetcher != null);
+        System.out.println(Core.getInstance().getMysql() != null);
         Player player = event.getPlayer();
+        System.out.println(player != null);
+        System.out.println(player.getUniqueId());
         if (!nameUuidFetcher.hasPlayedOnNetwork(player.getUniqueId())){
             nameUuidFetcher.insert(player.getUniqueId(), player.getName());
         }else {

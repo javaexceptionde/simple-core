@@ -16,6 +16,7 @@
 
 package dev.jbull.simplecore.loader;
 
+import dev.jbull.simplecore.commands.Language_Command;
 import dev.jbull.simplecore.config.BungeeConfig;
 import dev.jbull.simplecore.config.IConfig;
 import dev.jbull.simplecore.config.SpigotConfig;
@@ -37,7 +38,7 @@ public class CoreBungee extends Plugin {
     public void onEnable() {
         instance = this;
         getDataFolder().mkdir();
-        File file = new File(getDataFolder().getPath() +  "/license.yml");
+        /*File file = new File(getDataFolder().getPath() +  "/license.yml");
         licenseConfig = new SpigotConfig(file);
         licenseConfig.addDefault("license", "123456789");
         licenseConfig.setDefaults();
@@ -45,11 +46,11 @@ public class CoreBungee extends Plugin {
         if (!license.checkLicense(licenseConfig.getString("license"))) {
             getLogger().info("Die Lizenz ist ungültig. ");
             this.onDisable();
-        }else {
+        }else {*/
             File file1 = new File(getDataFolder().getPath() +  "/config.yml");
             yamlConfig = new BungeeConfig(file1);
             registerListener();
-        }
+        //}
 
 
     }
@@ -62,6 +63,10 @@ public class CoreBungee extends Plugin {
 
     public void registerListener(){
 
+    }
+
+    public void registerCommands(){
+        getProxy().getPluginManager().registerCommand(this, new Language_Command("language"));
     }
 
     public static CoreBungee getInstance() {

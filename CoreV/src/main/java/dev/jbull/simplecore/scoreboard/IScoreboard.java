@@ -20,9 +20,7 @@ import org.bukkit.entity.Player;
 
 public interface IScoreboard {
 
-    void setTabHeader(String header);
-
-    void setFooter(String footer);
+    void setFooterAndHeader(String header, String footer, Player player);
 
     void set(Player player);
 

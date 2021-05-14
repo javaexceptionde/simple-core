@@ -73,9 +73,7 @@ public class MySQL {
     }
 
     public void getResult(final String query, Callback<ResultSet> callback) {
-        scheduler.schedule(new Runnable() {
-            @Override
-            public void run() {
+
                 if (isConnected()) {
                     try(Connection connection = hikari.getConnection()) {
                         callback.call(connection.createStatement().executeQuery(query));
@@ -83,10 +81,6 @@ public class MySQL {
                         e.printStackTrace();
                     }
                 }
-            }
-        });
-
-
     }
 
     public void update(final String query) {
@@ -240,10 +234,10 @@ public class MySQL {
                             toReturn.set(result.getString(conditiontype) != null);
                         }
                     }catch (SQLException exception){
-
+                        exception.printStackTrace();
                     }
                 });
-
+        System.out.println(toReturn.get());
         return toReturn.get();
     }
 

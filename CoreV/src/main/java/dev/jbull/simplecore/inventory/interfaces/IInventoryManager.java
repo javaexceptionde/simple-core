@@ -16,5 +16,21 @@
 
 package dev.jbull.simplecore.inventory.interfaces;
 
+import dev.jbull.simplecore.Core;
+import dev.jbull.simplecore.database.sql.MySQL;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.Inventory;
+
 public interface IInventoryManager {
+    MySQL mysql = Core.getInstance().getMysql();
+
+    void savePlayerBasedInventory(Inventory inventory, Player player, String identifier);
+
+    Inventory loadPlayerBasedInventory(Inventory inventory, Player player, String identifier);
+
+    boolean playerBasedInventoryExists(Player player, String identifier);
+
+    void saveInventory(Inventory inventory, String identifier);
+
+    Inventory loadInventory(String identifier);
 }
