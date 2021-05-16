@@ -24,14 +24,26 @@ public class Logger {
         this.logger = logger;
     }
 
+    /**
+     * Sets the Debug mode for the Logger
+     * @param debug should be true if enabled or false if not
+     */
     public void setDebug(boolean debug) {
         this.debug = debug;
     }
 
+    /**
+     * Prints a debug message if the Debug moder is enabled
+     * @param message The message which should be printed
+     */
     public void debug(String message){
         if (debug)logger.info("[DEBUG]" + message);
     }
 
+    /**
+     * Prints a message in the Console
+     * @param message The message which should be printed
+     */
     public void info(String message){
         logger.info(message);
     }

@@ -44,7 +44,9 @@ public class CoreSpigot extends JavaPlugin {
         getDataFolder().mkdirs();
         File file1 = new File(getDataFolder().getPath() +  "/config.yml");
         yamlConfig = new SpigotConfig(file1);
-        Core core = new Core(yamlConfig, Bukkit.getLogger());
+        MessageHandler handler = new MessageHandler("localhost", "4222");
+        handler.sendMessage("bungeecord", "spigot registry");
+        Core core = new Core(yamlConfig, Bukkit.getLogger(), handler);
         core.load();
         registerListener(yamlConfig.getBoolean("bungeecord"));
 

@@ -33,7 +33,7 @@ public class MessageHandler {
 
     public MessageHandler(String ip, String port){
         try {
-            nats = Nats.connect();
+            nats = Nats.connect("nats://" + ip + ":" + port + "");
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {

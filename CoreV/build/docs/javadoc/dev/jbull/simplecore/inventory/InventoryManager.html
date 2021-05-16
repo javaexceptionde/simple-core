@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -120,6 +120,21 @@ implements <a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInven
 <div class="summary">
 <ul class="blockList">
 <li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<ul class="blockList">
+<li class="blockList"><a name="fields.inherited.from.class.dev.jbull.simplecore.inventory.interfaces.IInventoryManager">
+<!--   -->
+</a>
+<h3>Fields inherited from interface&nbsp;dev.jbull.simplecore.inventory.interfaces.<a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html" title="interface in dev.jbull.simplecore.inventory.interfaces">IInventoryManager</a></h3>
+<code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#mysql">mysql</a></code></li>
+</ul>
+</li>
+</ul>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <ul class="blockList">
 <li class="blockList"><a name="constructor.summary">
@@ -154,6 +169,40 @@ implements <a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInven
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#createInventory-java.lang.String-int-dev.jbull.simplecore.utils.Callback-">createInventory</a></span>(java.lang.String&nbsp;title,
                int&nbsp;size,
                <a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;org.bukkit.inventory.Inventory&gt;&nbsp;callback)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#inventoryToString-org.bukkit.inventory.Inventory-">inventoryToString</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>org.bukkit.inventory.Inventory</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#loadInventory-java.lang.String-">loadInventory</a></span>(java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>org.bukkit.inventory.Inventory</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#loadPlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">loadPlayerBasedInventory</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory,
+                        org.bukkit.entity.Player&nbsp;player,
+                        java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#playerBasedInventoryExists-org.bukkit.entity.Player-java.lang.String-">playerBasedInventoryExists</a></span>(org.bukkit.entity.Player&nbsp;player,
+                          java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#saveInventory-org.bukkit.inventory.Inventory-java.lang.String-">saveInventory</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory,
+             java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#savePlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">savePlayerBasedInventory</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory,
+                        org.bukkit.entity.Player&nbsp;player,
+                        java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>org.bukkit.inventory.Inventory</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/inventory/InventoryManager.html#stringToInventory-java.lang.String-">stringToInventory</a></span>(java.lang.String&nbsp;inventoryData)</code>&nbsp;</td>
 </tr>
 </table>
 <ul class="blockList">
@@ -197,12 +246,101 @@ implements <a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInven
 <a name="createInventory-java.lang.String-int-dev.jbull.simplecore.utils.Callback-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>createInventory</h4>
 <pre>public&nbsp;void&nbsp;createInventory(java.lang.String&nbsp;title,
                             int&nbsp;size,
                             <a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;org.bukkit.inventory.Inventory&gt;&nbsp;callback)</pre>
+</li>
+</ul>
+<a name="inventoryToString-org.bukkit.inventory.Inventory-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>inventoryToString</h4>
+<pre>public&nbsp;java.lang.String&nbsp;inventoryToString(org.bukkit.inventory.Inventory&nbsp;inventory)</pre>
+</li>
+</ul>
+<a name="stringToInventory-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>stringToInventory</h4>
+<pre>public&nbsp;org.bukkit.inventory.Inventory&nbsp;stringToInventory(java.lang.String&nbsp;inventoryData)</pre>
+</li>
+</ul>
+<a name="savePlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>savePlayerBasedInventory</h4>
+<pre>public&nbsp;void&nbsp;savePlayerBasedInventory(org.bukkit.inventory.Inventory&nbsp;inventory,
+                                     org.bukkit.entity.Player&nbsp;player,
+                                     java.lang.String&nbsp;identifier)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#savePlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">savePlayerBasedInventory</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html" title="interface in dev.jbull.simplecore.inventory.interfaces">IInventoryManager</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadPlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadPlayerBasedInventory</h4>
+<pre>public&nbsp;org.bukkit.inventory.Inventory&nbsp;loadPlayerBasedInventory(org.bukkit.inventory.Inventory&nbsp;inventory,
+                                                               org.bukkit.entity.Player&nbsp;player,
+                                                               java.lang.String&nbsp;identifier)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#loadPlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">loadPlayerBasedInventory</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html" title="interface in dev.jbull.simplecore.inventory.interfaces">IInventoryManager</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="playerBasedInventoryExists-org.bukkit.entity.Player-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>playerBasedInventoryExists</h4>
+<pre>public&nbsp;boolean&nbsp;playerBasedInventoryExists(org.bukkit.entity.Player&nbsp;player,
+                                          java.lang.String&nbsp;identifier)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#playerBasedInventoryExists-org.bukkit.entity.Player-java.lang.String-">playerBasedInventoryExists</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html" title="interface in dev.jbull.simplecore.inventory.interfaces">IInventoryManager</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="saveInventory-org.bukkit.inventory.Inventory-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveInventory</h4>
+<pre>public&nbsp;void&nbsp;saveInventory(org.bukkit.inventory.Inventory&nbsp;inventory,
+                          java.lang.String&nbsp;identifier)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#saveInventory-org.bukkit.inventory.Inventory-java.lang.String-">saveInventory</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html" title="interface in dev.jbull.simplecore.inventory.interfaces">IInventoryManager</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="loadInventory-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadInventory</h4>
+<pre>public&nbsp;org.bukkit.inventory.Inventory&nbsp;loadInventory(java.lang.String&nbsp;identifier)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#loadInventory-java.lang.String-">loadInventory</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html" title="interface in dev.jbull.simplecore.inventory.interfaces">IInventoryManager</a></code></dd>
+</dl>
 </li>
 </ul>
 </li>

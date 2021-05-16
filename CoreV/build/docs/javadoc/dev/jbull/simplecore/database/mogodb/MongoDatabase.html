@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -156,21 +156,70 @@ implements <a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB
 </td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>com.mongodb.MongoClient</code></td>
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#contains-java.lang.String-org.bson.Document-">contains</a></span>(java.lang.String&nbsp;collection,
+        org.bson.Document&nbsp;query)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#contains-java.lang.String-java.util.Map-">contains</a></span>(java.lang.String&nbsp;collection,
+        java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;values)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#contains-java.lang.String-java.lang.String-java.lang.Object-">contains</a></span>(java.lang.String&nbsp;collection,
+        java.lang.String&nbsp;key,
+        java.lang.Object&nbsp;value)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#createCollection-java.lang.String-">createCollection</a></span>(java.lang.String&nbsp;collection)</code>
+<div class="block">Creates a MongoCollection.</div>
+</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>com.mongodb.async.client.MongoClient</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#getClient--">getClient</a></span>()</code>
 <div class="block">Gets the MongoClient</div>
 </td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>com.mongodb.client.MongoCollection&lt;org.bson.Document&gt;</code></td>
+<tr id="i6" class="altColor">
+<td class="colFirst"><code>com.mongodb.async.client.MongoCollection&lt;org.bson.Document&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#getCollection-java.lang.String-">getCollection</a></span>(java.lang.String&nbsp;collection)</code>
 <div class="block">Gets a MongoCollection by specified name</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>com.mongodb.client.MongoDatabase</code></td>
+<tr id="i7" class="rowColor">
+<td class="colFirst"><code>com.mongodb.async.client.MongoDatabase</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#getDatabase--">getDatabase</a></span>()</code>
 <div class="block">Gets the Database</div>
+</td>
+</tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>org.bson.Document</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#getDocument-java.lang.String-org.bson.Document-">getDocument</a></span>(java.lang.String&nbsp;collection,
+           org.bson.Document&nbsp;query)</code>&nbsp;</td>
+</tr>
+<tr id="i9" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#insertOne-java.lang.String-org.bson.Document-">insertOne</a></span>(java.lang.String&nbsp;collection,
+         org.bson.Document&nbsp;document)</code>
+<div class="block">Insert one Document in a specified Collection</div>
+</td>
+</tr>
+<tr id="i10" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#updateOne-java.lang.String-org.bson.Document-org.bson.Document-">updateOne</a></span>(java.lang.String&nbsp;collection,
+         org.bson.Document&nbsp;query,
+         org.bson.Document&nbsp;update)</code>&nbsp;</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/database/mogodb/MongoDatabase.html#updateOne-java.lang.String-java.lang.String-java.lang.String-org.bson.Document-">updateOne</a></span>(java.lang.String&nbsp;collection,
+         java.lang.String&nbsp;key,
+         java.lang.String&nbsp;value,
+         org.bson.Document&nbsp;update)</code>
+<div class="block">Updates one Document.</div>
 </td>
 </tr>
 </table>
@@ -233,7 +282,7 @@ implements <a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB
 <ul class="blockList">
 <li class="blockList">
 <h4>getClient</h4>
-<pre>public&nbsp;com.mongodb.MongoClient&nbsp;getClient()</pre>
+<pre>public&nbsp;com.mongodb.async.client.MongoClient&nbsp;getClient()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#getClient--">IMongoDB</a></code></span></div>
 <div class="block">Gets the MongoClient</div>
 <dl>
@@ -250,7 +299,7 @@ implements <a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB
 <ul class="blockList">
 <li class="blockList">
 <h4>getDatabase</h4>
-<pre>public&nbsp;com.mongodb.client.MongoDatabase&nbsp;getDatabase()</pre>
+<pre>public&nbsp;com.mongodb.async.client.MongoDatabase&nbsp;getDatabase()</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#getDatabase--">IMongoDB</a></code></span></div>
 <div class="block">Gets the Database</div>
 <dl>
@@ -264,10 +313,10 @@ implements <a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB
 <a name="getCollection-java.lang.String-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getCollection</h4>
-<pre>public&nbsp;com.mongodb.client.MongoCollection&lt;org.bson.Document&gt;&nbsp;getCollection(java.lang.String&nbsp;collection)</pre>
+<pre>public&nbsp;com.mongodb.async.client.MongoCollection&lt;org.bson.Document&gt;&nbsp;getCollection(java.lang.String&nbsp;collection)</pre>
 <div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#getCollection-java.lang.String-">IMongoDB</a></code></span></div>
 <div class="block">Gets a MongoCollection by specified name</div>
 <dl>
@@ -277,6 +326,137 @@ implements <a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB
 <dd><code>collection</code> - the name of the collection</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>instance of the specified <code>MongoCollection</code></dd>
+</dl>
+</li>
+</ul>
+<a name="createCollection-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>createCollection</h4>
+<pre>public&nbsp;void&nbsp;createCollection(java.lang.String&nbsp;collection)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#createCollection-java.lang.String-">IMongoDB</a></code></span></div>
+<div class="block">Creates a MongoCollection.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#createCollection-java.lang.String-">createCollection</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>collection</code> - the Name of the MongoCollection</dd>
+</dl>
+</li>
+</ul>
+<a name="insertOne-java.lang.String-org.bson.Document-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>insertOne</h4>
+<pre>public&nbsp;void&nbsp;insertOne(java.lang.String&nbsp;collection,
+                      org.bson.Document&nbsp;document)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#insertOne-java.lang.String-org.bson.Document-">IMongoDB</a></code></span></div>
+<div class="block">Insert one Document in a specified Collection</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#insertOne-java.lang.String-org.bson.Document-">insertOne</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>collection</code> - the Collection where the Document should be inserted</dd>
+<dd><code>document</code> - the Document which should be inserted</dd>
+</dl>
+</li>
+</ul>
+<a name="updateOne-java.lang.String-java.lang.String-java.lang.String-org.bson.Document-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateOne</h4>
+<pre>public&nbsp;void&nbsp;updateOne(java.lang.String&nbsp;collection,
+                      java.lang.String&nbsp;key,
+                      java.lang.String&nbsp;value,
+                      org.bson.Document&nbsp;update)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#updateOne-java.lang.String-java.lang.String-java.lang.String-org.bson.Document-">IMongoDB</a></code></span></div>
+<div class="block">Updates one Document.</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#updateOne-java.lang.String-java.lang.String-java.lang.String-org.bson.Document-">updateOne</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>collection</code> - The Collection where the Document should be updated.</dd>
+<dd><code>key</code> - The Key to identify the Document</dd>
+<dd><code>value</code> - The Value to identify the Document</dd>
+<dd><code>update</code> - The Values which should be updated</dd>
+</dl>
+</li>
+</ul>
+<a name="updateOne-java.lang.String-org.bson.Document-org.bson.Document-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateOne</h4>
+<pre>public&nbsp;void&nbsp;updateOne(java.lang.String&nbsp;collection,
+                      org.bson.Document&nbsp;query,
+                      org.bson.Document&nbsp;update)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#updateOne-java.lang.String-org.bson.Document-org.bson.Document-">updateOne</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="getDocument-java.lang.String-org.bson.Document-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getDocument</h4>
+<pre>public&nbsp;org.bson.Document&nbsp;getDocument(java.lang.String&nbsp;collection,
+                                     org.bson.Document&nbsp;query)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#getDocument-java.lang.String-org.bson.Document-">getDocument</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="contains-java.lang.String-java.lang.String-java.lang.Object-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>contains</h4>
+<pre>public&nbsp;boolean&nbsp;contains(java.lang.String&nbsp;collection,
+                        java.lang.String&nbsp;key,
+                        java.lang.Object&nbsp;value)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#contains-java.lang.String-java.lang.String-java.lang.Object-">contains</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="contains-java.lang.String-java.util.Map-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>contains</h4>
+<pre>public&nbsp;boolean&nbsp;contains(java.lang.String&nbsp;collection,
+                        java.util.Map&lt;java.lang.String,java.lang.Object&gt;&nbsp;values)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#contains-java.lang.String-java.util.Map-">contains</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
+</dl>
+</li>
+</ul>
+<a name="contains-java.lang.String-org.bson.Document-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>contains</h4>
+<pre>public&nbsp;boolean&nbsp;contains(java.lang.String&nbsp;collection,
+                        org.bson.Document&nbsp;query)</pre>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html#contains-java.lang.String-org.bson.Document-">contains</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../dev/jbull/simplecore/database/mogodb/IMongoDB.html" title="interface in dev.jbull.simplecore.database.mogodb">IMongoDB</a></code></dd>
 </dl>
 </li>
 </ul>

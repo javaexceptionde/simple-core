@@ -56,21 +56,14 @@ public class Core {
     private IPlayerManager playerManager;
     private MessageHandler messageHandler;
 
-    public Core(IConfig yamlConfig, Logger logger){
-        try {
-            nc = Nats.connect("nats://localhost:4222");
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public Core(IConfig yamlConfig, Logger logger, MessageHandler handler){
+        messageHandler = handler;
         listenerList = new ListenerList();
         listenerList.add(new ChannelMessageListener());
         instance = this;
         this.logger = new dev.jbull.simplecore.logger.Logger(logger);
         scheduler = new ExecuteScheduler();
         this.yamlConfig = yamlConfig;
-
 
     }
 
@@ -98,6 +91,7 @@ public class Core {
                 , yamlConfig.getString("database.mysql.port"));
         mysql.update("CREATE TABLE IF NOT EXISTS nameuuid(UUID VARCHAR(64), NAME TEXT)");
         mysql.update("CREATE TABLE IF NOT EXISTS language(UUID VARCHAR(64), LANGUAGE TEXT)");
+        mysql.update("CREATE TABLE IF NOT EXISTS players(UUID VARCHAR(64), NAME VARCHAR(16), LANGUAGE TEXT, COINS INTEGER)");
         playerManager = new SQLPlayerManager();
         nameUuidFetcher = new NameUuidFetcher();
         inventoryManager = new InventoryManager();

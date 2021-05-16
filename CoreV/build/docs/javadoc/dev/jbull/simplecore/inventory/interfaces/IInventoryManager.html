@@ -17,6 +17,12 @@
     catch(err) {
     }
 //-->
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6};
+var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
+var altColor = "altColor";
+var rowColor = "rowColor";
+var tableTab = "tableTab";
+var activeTableTab = "activeTableTab";
 </script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -67,15 +73,15 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.top">
@@ -98,6 +104,154 @@
 <hr>
 <br>
 <pre>public interface <span class="typeNameLabel">IInventoryManager</span></pre>
+</li>
+</ul>
+</div>
+<div class="summary">
+<ul class="blockList">
+<li class="blockList">
+<!-- =========== FIELD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.summary">
+<!--   -->
+</a>
+<h3>Field Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Field Summary table, listing fields, and an explanation">
+<caption><span>Fields</span><span class="tabEnd">&nbsp;</span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Field and Description</th>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>static <a href="../../../../../dev/jbull/simplecore/database/sql/MySQL.html" title="class in dev.jbull.simplecore.database.sql">MySQL</a></code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#mysql">mysql</a></span></code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+<!-- ========== METHOD SUMMARY =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.summary">
+<!--   -->
+</a>
+<h3>Method Summary</h3>
+<table class="memberSummary" border="0" cellpadding="3" cellspacing="0" summary="Method Summary table, listing methods, and an explanation">
+<caption><span id="t0" class="activeTableTab"><span>All Methods</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Instance Methods</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Abstract Methods</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<tr>
+<th class="colFirst" scope="col">Modifier and Type</th>
+<th class="colLast" scope="col">Method and Description</th>
+</tr>
+<tr id="i0" class="altColor">
+<td class="colFirst"><code>org.bukkit.inventory.Inventory</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#loadInventory-java.lang.String-">loadInventory</a></span>(java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
+<td class="colFirst"><code>org.bukkit.inventory.Inventory</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#loadPlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">loadPlayerBasedInventory</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory,
+                        org.bukkit.entity.Player&nbsp;player,
+                        java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#playerBasedInventoryExists-org.bukkit.entity.Player-java.lang.String-">playerBasedInventoryExists</a></span>(org.bukkit.entity.Player&nbsp;player,
+                          java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#saveInventory-org.bukkit.inventory.Inventory-java.lang.String-">saveInventory</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory,
+             java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../../dev/jbull/simplecore/inventory/interfaces/IInventoryManager.html#savePlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">savePlayerBasedInventory</a></span>(org.bukkit.inventory.Inventory&nbsp;inventory,
+                        org.bukkit.entity.Player&nbsp;player,
+                        java.lang.String&nbsp;identifier)</code>&nbsp;</td>
+</tr>
+</table>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="details">
+<ul class="blockList">
+<li class="blockList">
+<!-- ============ FIELD DETAIL =========== -->
+<ul class="blockList">
+<li class="blockList"><a name="field.detail">
+<!--   -->
+</a>
+<h3>Field Detail</h3>
+<a name="mysql">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>mysql</h4>
+<pre>static final&nbsp;<a href="../../../../../dev/jbull/simplecore/database/sql/MySQL.html" title="class in dev.jbull.simplecore.database.sql">MySQL</a> mysql</pre>
+</li>
+</ul>
+</li>
+</ul>
+<!-- ============ METHOD DETAIL ========== -->
+<ul class="blockList">
+<li class="blockList"><a name="method.detail">
+<!--   -->
+</a>
+<h3>Method Detail</h3>
+<a name="savePlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>savePlayerBasedInventory</h4>
+<pre>void&nbsp;savePlayerBasedInventory(org.bukkit.inventory.Inventory&nbsp;inventory,
+                              org.bukkit.entity.Player&nbsp;player,
+                              java.lang.String&nbsp;identifier)</pre>
+</li>
+</ul>
+<a name="loadPlayerBasedInventory-org.bukkit.inventory.Inventory-org.bukkit.entity.Player-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>loadPlayerBasedInventory</h4>
+<pre>org.bukkit.inventory.Inventory&nbsp;loadPlayerBasedInventory(org.bukkit.inventory.Inventory&nbsp;inventory,
+                                                        org.bukkit.entity.Player&nbsp;player,
+                                                        java.lang.String&nbsp;identifier)</pre>
+</li>
+</ul>
+<a name="playerBasedInventoryExists-org.bukkit.entity.Player-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>playerBasedInventoryExists</h4>
+<pre>boolean&nbsp;playerBasedInventoryExists(org.bukkit.entity.Player&nbsp;player,
+                                   java.lang.String&nbsp;identifier)</pre>
+</li>
+</ul>
+<a name="saveInventory-org.bukkit.inventory.Inventory-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>saveInventory</h4>
+<pre>void&nbsp;saveInventory(org.bukkit.inventory.Inventory&nbsp;inventory,
+                   java.lang.String&nbsp;identifier)</pre>
+</li>
+</ul>
+<a name="loadInventory-java.lang.String-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>loadInventory</h4>
+<pre>org.bukkit.inventory.Inventory&nbsp;loadInventory(java.lang.String&nbsp;identifier)</pre>
+</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 </div>
@@ -149,15 +303,15 @@
 <ul class="subNavList">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.summary">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.summary">Method</a></li>
 </ul>
 <ul class="subNavList">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field.detail">Field</a>&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
-<li>Method</li>
+<li><a href="#method.detail">Method</a></li>
 </ul>
 </div>
 <a name="skip.navbar.bottom">

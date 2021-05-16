@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10};
+var methods = {"i0":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -98,31 +98,17 @@ var activeTableTab = "activeTableTab";
 <li>java.lang.Object</li>
 <li>
 <ul class="inheritance">
-<li>org.bukkit.plugin.PluginBase</li>
-<li>
-<ul class="inheritance">
-<li>org.bukkit.plugin.java.JavaPlugin</li>
-<li>
-<ul class="inheritance">
 <li>dev.jbull.simplecore.Core</li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
 <div class="description">
 <ul class="blockList">
 <li class="blockList">
-<dl>
-<dt>All Implemented Interfaces:</dt>
-<dd>org.bukkit.command.CommandExecutor, org.bukkit.command.TabCompleter, org.bukkit.command.TabExecutor, org.bukkit.plugin.Plugin</dd>
-</dl>
 <hr>
 <br>
 <pre>public class <span class="typeNameLabel">Core</span>
-extends org.bukkit.plugin.java.JavaPlugin</pre>
+extends java.lang.Object</pre>
 </li>
 </ul>
 </div>
@@ -141,7 +127,9 @@ extends org.bukkit.plugin.java.JavaPlugin</pre>
 <th class="colOne" scope="col">Constructor and Description</th>
 </tr>
 <tr class="altColor">
-<td class="colOne"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#Core--">Core</a></span>()</code>&nbsp;</td>
+<td class="colOne"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#Core-dev.jbull.simplecore.config.IConfig-java.util.logging.Logger-dev.jbull.simplecore.messaging.MessageHandler-">Core</a></span>(<a href="../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a>&nbsp;yamlConfig,
+    java.util.logging.Logger&nbsp;logger,
+    <a href="../../../dev/jbull/simplecore/messaging/MessageHandler.html" title="class in dev.jbull.simplecore.messaging">MessageHandler</a>&nbsp;handler)</code>&nbsp;</td>
 </tr>
 </table>
 </li>
@@ -160,41 +148,15 @@ extends org.bukkit.plugin.java.JavaPlugin</pre>
 </tr>
 <tr id="i0" class="altColor">
 <td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#initMysql--">initMysql</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#onDisable--">onDisable</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#onEnable--">onEnable</a></span>()</code>&nbsp;</td>
-</tr>
-<tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#registerListener--">registerListener</a></span>()</code>&nbsp;</td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../dev/jbull/simplecore/Core.html#load--">load</a></span>()</code>&nbsp;</td>
 </tr>
 </table>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.bukkit.plugin.java.JavaPlugin">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;org.bukkit.plugin.java.JavaPlugin</h3>
-<code>getClassLoader, getCommand, getConfig, getDatabase, getDatabaseClasses, getDataFolder, getDefaultWorldGenerator, getDescription, getFile, getLogger, getPlugin, getPluginLoader, getProvidingPlugin, getResource, getServer, getTextResource, initialize, installDDL, isEnabled, isInitialized, isNaggable, onCommand, onLoad, onTabComplete, reloadConfig, removeDDL, saveConfig, saveDefaultConfig, saveResource, setEnabled, setNaggable, toString</code></li>
-</ul>
-<ul class="blockList">
-<li class="blockList"><a name="methods.inherited.from.class.org.bukkit.plugin.PluginBase">
-<!--   -->
-</a>
-<h3>Methods inherited from class&nbsp;org.bukkit.plugin.PluginBase</h3>
-<code>equals, getName, hashCode</code></li>
-</ul>
 <ul class="blockList">
 <li class="blockList"><a name="methods.inherited.from.class.java.lang.Object">
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;java.lang.Object</h3>
-<code>clone, finalize, getClass, notify, notifyAll, wait, wait, wait</code></li>
+<code>clone, equals, finalize, getClass, hashCode, notify, notifyAll, toString, wait, wait, wait</code></li>
 </ul>
 </li>
 </ul>
@@ -210,13 +172,15 @@ extends org.bukkit.plugin.java.JavaPlugin</pre>
 <!--   -->
 </a>
 <h3>Constructor Detail</h3>
-<a name="Core--">
+<a name="Core-dev.jbull.simplecore.config.IConfig-java.util.logging.Logger-dev.jbull.simplecore.messaging.MessageHandler-">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
 <h4>Core</h4>
-<pre>public&nbsp;Core()</pre>
+<pre>public&nbsp;Core(<a href="../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a>&nbsp;yamlConfig,
+            java.util.logging.Logger&nbsp;logger,
+            <a href="../../../dev/jbull/simplecore/messaging/MessageHandler.html" title="class in dev.jbull.simplecore.messaging">MessageHandler</a>&nbsp;handler)</pre>
 </li>
 </ul>
 </li>
@@ -227,52 +191,13 @@ extends org.bukkit.plugin.java.JavaPlugin</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a name="onEnable--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onEnable</h4>
-<pre>public&nbsp;void&nbsp;onEnable()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>onEnable</code>&nbsp;in interface&nbsp;<code>org.bukkit.plugin.Plugin</code></dd>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onEnable</code>&nbsp;in class&nbsp;<code>org.bukkit.plugin.java.JavaPlugin</code></dd>
-</dl>
-</li>
-</ul>
-<a name="onDisable--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>onDisable</h4>
-<pre>public&nbsp;void&nbsp;onDisable()</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
-<dd><code>onDisable</code>&nbsp;in interface&nbsp;<code>org.bukkit.plugin.Plugin</code></dd>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code>onDisable</code>&nbsp;in class&nbsp;<code>org.bukkit.plugin.java.JavaPlugin</code></dd>
-</dl>
-</li>
-</ul>
-<a name="registerListener--">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>registerListener</h4>
-<pre>public&nbsp;void&nbsp;registerListener()</pre>
-</li>
-</ul>
-<a name="initMysql--">
+<a name="load--">
 <!--   -->
 </a>
 <ul class="blockListLast">
 <li class="blockList">
-<h4>initMysql</h4>
-<pre>public&nbsp;void&nbsp;initMysql()</pre>
+<h4>load</h4>
+<pre>public&nbsp;void&nbsp;load()</pre>
 </li>
 </ul>
 </li>

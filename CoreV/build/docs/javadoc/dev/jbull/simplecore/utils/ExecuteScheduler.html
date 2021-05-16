@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -145,30 +145,34 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Method and Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.ExecutorService</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#getExecutor--">getExecutor</a></span>()</code>&nbsp;</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;java.util.concurrent.Future&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#schedule-java.util.concurrent.Callable-long-long-">schedule</a></span>(java.util.concurrent.Callable&lt;T&gt;&nbsp;callable,
         long&nbsp;delay,
         long&nbsp;interval)</code>&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>java.util.concurrent.Future&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#schedule-dev.jbull.simplecore.utils.Callback-">schedule</a></span>(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.Runnable&gt;&nbsp;handler)</code>&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#schedule-dev.jbull.simplecore.utils.Callback-long-">schedule</a></span>(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.Runnable&gt;&nbsp;handler,
         long&nbsp;delay)</code>&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#schedule-java.lang.Runnable-">schedule</a></span>(java.lang.Runnable&nbsp;runnable)</code>&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
-<td class="colFirst"><code>&lt;T&gt;&nbsp;java.util.concurrent.Future&lt;?&gt;</code></td>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>&lt;T&gt;&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#schedule-java.lang.Runnable-long-">schedule</a></span>(java.lang.Runnable&nbsp;runnable,
         long&nbsp;delay)</code>&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>&lt;T&gt;&nbsp;java.util.concurrent.Future&lt;?&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/utils/ExecuteScheduler.html#schedule-java.lang.Runnable-long-long-">schedule</a></span>(java.lang.Runnable&nbsp;runnable,
         long&nbsp;delay,
@@ -228,7 +232,7 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>schedule</h4>
-<pre>public&nbsp;void&nbsp;schedule(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.Runnable&gt;&nbsp;handler)</pre>
+<pre>public&nbsp;java.util.concurrent.Future&lt;?&gt;&nbsp;schedule(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.Runnable&gt;&nbsp;handler)</pre>
 </li>
 </ul>
 <a name="schedule-java.lang.Runnable-long-">
@@ -237,8 +241,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>schedule</h4>
-<pre>public&nbsp;&lt;T&gt;&nbsp;java.util.concurrent.Future&lt;?&gt;&nbsp;schedule(java.lang.Runnable&nbsp;runnable,
-                                                   long&nbsp;delay)</pre>
+<pre>public&nbsp;&lt;T&gt;&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;schedule(java.lang.Runnable&nbsp;runnable,
+                                                            long&nbsp;delay)</pre>
 </li>
 </ul>
 <a name="schedule-dev.jbull.simplecore.utils.Callback-long-">
@@ -247,8 +251,8 @@ extends java.lang.Object</pre>
 <ul class="blockList">
 <li class="blockList">
 <h4>schedule</h4>
-<pre>public&nbsp;void&nbsp;schedule(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.Runnable&gt;&nbsp;handler,
-                     long&nbsp;delay)</pre>
+<pre>public&nbsp;java.util.concurrent.ScheduledFuture&lt;?&gt;&nbsp;schedule(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.Runnable&gt;&nbsp;handler,
+                                                        long&nbsp;delay)</pre>
 </li>
 </ul>
 <a name="schedule-java.lang.Runnable-long-long-">
@@ -265,12 +269,21 @@ extends java.lang.Object</pre>
 <a name="schedule-java.util.concurrent.Callable-long-long-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>schedule</h4>
 <pre>public&nbsp;&lt;T&gt;&nbsp;java.util.concurrent.Future&lt;?&gt;&nbsp;schedule(java.util.concurrent.Callable&lt;T&gt;&nbsp;callable,
                                                    long&nbsp;delay,
                                                    long&nbsp;interval)</pre>
+</li>
+</ul>
+<a name="getExecutor--">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getExecutor</h4>
+<pre>public&nbsp;java.util.concurrent.ExecutorService&nbsp;getExecutor()</pre>
 </li>
 </ul>
 </li>
