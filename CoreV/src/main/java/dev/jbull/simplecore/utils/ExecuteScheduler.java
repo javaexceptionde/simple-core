@@ -16,34 +16,16 @@
 
 package dev.jbull.simplecore.utils;
 
+import de.dytanic.cloudnet.driver.CloudNetDriver;
+import jdk.nashorn.internal.codegen.CompilerConstants;
+import org.bukkit.command.CommandExecutor;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.*;
 
 public class ExecuteScheduler {
     ExecutorService executor = Executors.newCachedThreadPool();
     ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
-
-    public void schedule(Runnable runnable) {
-        try {
-            executor.submit(runnable);
-        } catch (Throwable throwable) {
-            throwable.printStackTrace();
-        }
-
-    }
-
-    public  Future<?> schedule(Callback<Runnable> handler){
-        try {
-            return executor.submit(new Runnable() {
-                @Override
-                public void run() {
-                    handler.call(this);
-                }
-            });
-        }catch (Throwable throwable){
-            throwable.printStackTrace();
-        }
-        return null;
-    }
 
     public <T> ScheduledFuture<?> schedule(Runnable runnable, long delay) {
         return scheduledExecutorService.schedule(runnable, delay, TimeUnit.MILLISECONDS);
@@ -67,14 +49,6 @@ public class ExecuteScheduler {
         return scheduledExecutorService.scheduleAtFixedRate(runnable, delay, interval, TimeUnit.MILLISECONDS);
     }
 
-    public <T> Future<?> schedule(Callable<T> callable, long delay, long interval) {
-        try {
-            //return scheduledExecutorService.submit();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     public ExecutorService getExecutor() {
         return executor;

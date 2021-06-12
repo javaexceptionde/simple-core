@@ -52,7 +52,7 @@ public class Jedis implements IJedis {
             }catch (Throwable throwable){
                 logger.debug("Failed to get Connection from JedisPool. The following error occurred: " + throwable.getMessage());
             }
-        });
+        }, 0);
     }
 
     @Override

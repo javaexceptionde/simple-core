@@ -14,11 +14,27 @@
  * limitations under the License.
  */
 
-package dev.jbull.simplecore.player
+package dev.jbull.simplecore.player;
 
-import dev.jbull.simplecore.Core
-import java.util.*
+public interface ICorePlayer {
 
-class CorePlayer(val name: String, val uuid: UUID, val language: String) {
+    void setName(String name);
+
+    void setCoins(int coins);
+
+    void addCoins(int coins);
+
+    int getCoins();
+
+    void removeCoins(int coins);
+
+    int getTokens();
+
+    void setTokens(int tokens);
+
+    void addTokens(int tokens);
+
+    void removeTokens(int tokens);
+
 
 }

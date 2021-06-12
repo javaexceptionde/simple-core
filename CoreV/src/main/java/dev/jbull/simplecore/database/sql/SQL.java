@@ -79,7 +79,7 @@ public class SQL implements ISQL {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-        });
+        }, 0);
     }
 
     public CompletableFuture<ResultSet> executeQuery(String query)  {

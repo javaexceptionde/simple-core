@@ -81,7 +81,7 @@ public class BungeeConfig implements IConfig {
             } catch (IOException exception) {
                 exception.printStackTrace();
             }
-        });
+        }, 0);
     }
 
     @Override

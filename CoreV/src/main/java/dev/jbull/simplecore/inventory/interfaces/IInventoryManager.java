@@ -17,12 +17,12 @@
 package dev.jbull.simplecore.inventory.interfaces;
 
 import dev.jbull.simplecore.Core;
-import dev.jbull.simplecore.database.sql.MySQL;
+import dev.jbull.simplecore.database.sql.HikariConnectionProvider;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 
 public interface IInventoryManager {
-    MySQL mysql = Core.getInstance().getMysql();
+    HikariConnectionProvider MYSQL = Core.getInstance().getMysql();
 
     void savePlayerBasedInventory(Inventory inventory, Player player, String identifier);
 

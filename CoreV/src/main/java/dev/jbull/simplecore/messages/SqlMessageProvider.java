@@ -17,7 +17,7 @@
 package dev.jbull.simplecore.messages;
 
 import dev.jbull.simplecore.Core;
-import dev.jbull.simplecore.database.sql.MySQL;
+import dev.jbull.simplecore.database.sql.HikariConnectionProvider;
 import dev.jbull.simplecore.player.CorePlayer;
 import dev.jbull.simplecore.player.IPlayerManager;
 import org.apache.commons.lang3.Validate;
@@ -25,12 +25,12 @@ import org.apache.commons.lang3.Validate;
 import java.util.UUID;
 
 public class SqlMessageProvider implements IMessageProvider {
-    private MySQL mysql = Core.getInstance().getMysql();
+    private HikariConnectionProvider mysql = Core.getInstance().getMysql();
     private IPlayerManager playerManager = Core.getInstance().getPlayerManager();
 
     @Override
     public String getMessage(String messageKey, String language){
-        return mysql.getString("messages", "Message", "MessageKey", messageKey);
+        return mysql.getStringDoubleCondition("messages", "Message", "MessageKey", messageKey, "Language", language);
     }
 
     @Override
@@ -47,6 +47,7 @@ public class SqlMessageProvider implements IMessageProvider {
     public String getMessage(String messageKey, UUID uuid) {
         CorePlayer corePlayer = Core.getInstance().getPlayerManager().getPlayer(uuid);
         Validate.notNull(corePlayer);
+        if (!messageExists(messageKey, corePlayer.getLanguage()))return getMessage(messageKey, corePlayer.getLanguage());
         return mysql.getStringDoubleCondition("messages", "Message", "UUID", uuid.toString(), "Language", corePlayer.getLanguage());
     }
 

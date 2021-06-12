@@ -33,11 +33,7 @@ public class License {
 
     public boolean checkLicense(String license) {
         String content = getContent("https://download.jbull.dev/check.php?lizense=" + license);
-        if (content.equalsIgnoreCase("valid")){
-            return true;
-        }else {
-            return false;
-        }
+        return content.equalsIgnoreCase("valid");
     }
 
     private  String getContent(String theUrl) {

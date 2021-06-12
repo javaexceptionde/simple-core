@@ -16,11 +16,13 @@
 
 package dev.jbull.simplecore.loader;
 
+import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.commands.Language_Command;
 import dev.jbull.simplecore.config.BungeeConfig;
 import dev.jbull.simplecore.config.IConfig;
 import dev.jbull.simplecore.config.SpigotConfig;
 import dev.jbull.simplecore.license.License;
+import dev.jbull.simplecore.messaging.MessageHandler;
 import lombok.Getter;
 import net.md_5.bungee.api.plugin.Plugin;
 
@@ -50,7 +52,9 @@ public class CoreBungee extends Plugin {
             File file1 = new File(getDataFolder().getPath() +  "/config.yml");
             yamlConfig = new BungeeConfig(file1);
             registerListener();
-        //}
+            Core core = new Core(yamlConfig, this.getLogger(), new MessageHandler("127.0.0.1", "4222"));
+            core.load();
+            //}
 
 
     }

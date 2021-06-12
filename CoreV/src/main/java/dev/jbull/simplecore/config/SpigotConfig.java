@@ -86,7 +86,7 @@ public class SpigotConfig implements IConfig {
             } catch (IOException e) {
                 logger.debug("The Config couldn't be saved. The following Error occurred " + e.getCause());
             }
-        });
+        }, 0);
     }
 
     @Override

@@ -17,14 +17,16 @@
 package dev.jbull.simplecore.player;
 
 import dev.jbull.simplecore.Core;
-import dev.jbull.simplecore.database.sql.MySQL;
+import dev.jbull.simplecore.database.sql.HikariConnectionProvider;
 import dev.jbull.simplecore.messages.Language;
 import dev.jbull.simplecore.player.nameUuid.NameUuidFetcher;
 
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.UUID;
 
 public class SQLPlayerManager implements IPlayerManager {
-    private MySQL mysql = Core.getInstance().getMysql();
+    private HikariConnectionProvider mysql = Core.getInstance().getMysql();
     private NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
 
     @Override
@@ -40,8 +42,9 @@ public class SQLPlayerManager implements IPlayerManager {
     @Override
     public CorePlayer getPlayer(UUID uuid) {
         if (!playerExists(uuid))return null;
+
         String name = mysql.getString("players", "NAME","UUID", uuid.toString());
-        CorePlayer corePlayer = new CorePlayer(name, uuid, Language.GERMAN.toString());
+        CorePlayer corePlayer = new SQLCorePlayer(name, uuid, Language.GERMAN.toString(),  2, 2);
         return corePlayer;
     }
 
@@ -57,7 +60,16 @@ public class SQLPlayerManager implements IPlayerManager {
 
     @Override
     public void updateLanguage(CorePlayer player, Language language) {
-        mysql.update("UPDATE players SET Language= '" + language + "' WHERE UUID='" + player.getUuid() + "'");
+        mysql.openConnectionAsync(callBack -> {
+            try {
+                PreparedStatement preparedStatement = callBack.prepareStatement("UPDATE players SET Language=? WHERE UUID=?");
+                preparedStatement.setObject(1, language);
+                preparedStatement.setObject(2, player.getUuid());
+                preparedStatement.executeUpdate();
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+        });
     }
 
 

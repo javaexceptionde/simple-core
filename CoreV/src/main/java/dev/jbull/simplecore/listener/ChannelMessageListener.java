@@ -18,9 +18,22 @@ package dev.jbull.simplecore.listener;
 
 import dev.jbull.simplecore.events.Listener;
 import dev.jbull.simplecore.messaging.ChannelMessageEvent;
+import net.md_5.bungee.api.chat.BaseComponent;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+
+import java.util.UUID;
 
 public class ChannelMessageListener implements Listener {
     @Override
     public void onChannelMessageReceived(ChannelMessageEvent event) {
+        if (event.getChannel().equalsIgnoreCase("message_to_player")){
+            if (Bukkit.getPlayer(event.getMessage().get("player", UUID.class)) == null)return;
+            Bukkit.getPlayer(event.getMessage().get("player", UUID.class)).sendMessage(event.getMessage().getString("message"));
+        }else if (event.getChannel().equalsIgnoreCase("message_to_all")){
+            Bukkit.getOnlinePlayers().forEach(player -> {
+                player.spigot().sendMessage(event.getMessage().get("message", BaseComponent[].class));
+            });
+        }
     }
 }

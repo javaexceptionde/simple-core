@@ -17,7 +17,7 @@
 package dev.jbull.simplecore.player.nameUuid;
 
 import dev.jbull.simplecore.Core;
-import dev.jbull.simplecore.database.sql.MySQL;
+import dev.jbull.simplecore.database.sql.HikariConnectionProvider;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -27,7 +27,7 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class NameUuidFetcher implements INameUuidFetcher {
-    private MySQL mysql = Core.getInstance().getMysql();
+    private HikariConnectionProvider mysql = Core.getInstance().getMysql();
 
     @Override
     public String getName(UUID uuid) {

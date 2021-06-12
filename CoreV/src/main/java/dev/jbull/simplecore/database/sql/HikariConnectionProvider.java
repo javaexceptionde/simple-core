@@ -18,19 +18,23 @@ package dev.jbull.simplecore.database.sql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import de.dytanic.cloudnet.driver.CloudNetDriver;
 import dev.jbull.simplecore.utils.Callback;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
+import dev.jbull.simplecore.utils.IThrowableCallback;
+import org.yaml.snakeyaml.emitter.ScalarAnalysis;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Duration;
+import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
-public class MySQL {
+public class HikariConnectionProvider {
     private HikariConfig config;
     private HikariDataSource hikari;
     String host;
@@ -40,7 +44,7 @@ public class MySQL {
     String port;
     private ExecuteScheduler scheduler;
 
-    public MySQL(String host, String user, String pw, String databse, String port) {
+    public HikariConnectionProvider(String host, String user, String pw, String databse, String port) {
         this.host = host;
         this.user = user;
         this.pw = pw;
@@ -70,6 +74,26 @@ public class MySQL {
             hikari.close();
 
         }
+    }
+
+    public Future<Void> openConnectionAsync(Callback<Connection> callback){
+        return CloudNetDriver.getInstance().getTaskScheduler().schedule(() -> {
+            try(Connection connection = hikari.getConnection()) {
+                callback.call(connection);
+            } catch (SQLException exception) {
+                exception.printStackTrace();
+            }
+
+        });
+    }
+
+    public <T> T openConnection(IThrowableCallback<Connection, T> callback){
+        try(Connection connection = hikari.getConnection()) {
+            return callback.call(connection);
+        } catch (Throwable exception) {
+            exception.printStackTrace();
+        }
+        return null;
     }
 
     public void getResult(final String query, Callback<ResultSet> callback) {

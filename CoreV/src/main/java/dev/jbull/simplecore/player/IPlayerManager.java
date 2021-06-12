@@ -16,6 +16,7 @@
 
 package dev.jbull.simplecore.player;
 
+import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.messages.Language;
 
 import java.util.UUID;
@@ -63,4 +64,7 @@ public interface IPlayerManager {
      * @param language The language which should be the new
      */
     public void updateLanguage(CorePlayer player, Language language);
+
+
+
 }

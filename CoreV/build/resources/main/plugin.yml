@@ -3,3 +3,4 @@ main: dev.jbull.simplecore.loader.CoreSpigot
 version: 1.0.1-BETA
 
 commands:
+  npc:
