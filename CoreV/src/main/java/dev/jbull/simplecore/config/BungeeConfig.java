@@ -157,4 +157,11 @@ public class BungeeConfig implements IConfig {
         toReturn.addAll(configuration.getSection(key).getKeys());
         return toReturn;
     }
+
+    @Override
+    public Set<String> getKeys(boolean deep) {
+        Set<String> toReturn = Collections.emptySet();
+        toReturn.addAll(configuration.getKeys());
+        return toReturn;
+    }
 }

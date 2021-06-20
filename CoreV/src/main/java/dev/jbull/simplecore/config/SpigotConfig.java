@@ -159,4 +159,9 @@ public class SpigotConfig implements IConfig {
         return configuration.getConfigurationSection(key).getKeys(deep);
     }
 
+    @Override
+    public Set<String> getKeys(boolean deep) {
+        return configuration.getKeys(deep);
+    }
+
 }

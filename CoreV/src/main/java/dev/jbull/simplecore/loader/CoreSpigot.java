@@ -17,13 +17,10 @@
 package dev.jbull.simplecore.loader;
 
 import dev.jbull.simplecore.Core;
-import dev.jbull.simplecore.commands.NPCCommnad;
 import dev.jbull.simplecore.config.IConfig;
 import dev.jbull.simplecore.config.SpigotConfig;
 import dev.jbull.simplecore.license.License;
-import dev.jbull.simplecore.listener.InventoryClickListener;
-import dev.jbull.simplecore.listener.InventoryCloseListener;
-import dev.jbull.simplecore.listener.PlayerJoinListener;
+import dev.jbull.simplecore.listener.*;
 import dev.jbull.simplecore.messaging.MessageHandler;
 import lombok.Getter;
 import org.bukkit.Bukkit;
@@ -69,7 +66,9 @@ public class CoreSpigot extends JavaPlugin {
         if (!bungeecord)Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
+        Bukkit.getPluginManager().registerEvents(new NpcSpawnListener(), this);
         getCommand("npc").setExecutor(new NPCCommnad());
+        new EntityUseListener().startCheck();
     }
 
 }

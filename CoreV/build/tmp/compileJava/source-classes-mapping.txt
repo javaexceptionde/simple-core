@@ -22,8 +22,8 @@ dev/jbull/simplecore/utils/IThrowableCallback.java
  dev.jbull.simplecore.utils.IThrowableCallback
 dev/jbull/simplecore/events/ListenerList.java
  dev.jbull.simplecore.events.ListenerList
-dev/jbull/simplecore/database/mogodb/IMongoDB.java
- dev.jbull.simplecore.database.mogodb.IMongoDB
+dev/jbull/simplecore/npc/NPCProvider.java
+ dev.jbull.simplecore.npc.NPCProvider
 dev/jbull/simplecore/utils/ExecuteScheduler.java
  dev.jbull.simplecore.utils.ExecuteScheduler
  dev.jbull.simplecore.utils.ExecuteScheduler$1
@@ -31,6 +31,8 @@ dev/jbull/simplecore/utils/Callback.java
  dev.jbull.simplecore.utils.Callback
 dev/jbull/simplecore/database/sql/HikariConnectionProvider.java
  dev.jbull.simplecore.database.sql.HikariConnectionProvider
+dev/jbull/simplecore/inventory/anvil/AnvilContainer.java
+ dev.jbull.simplecore.inventory.anvil.AnvilContainer
 dev/jbull/simplecore/commands/Language_Command.java
  dev.jbull.simplecore.commands.Language_Command
 dev/jbull/simplecore/player/nameUuid/NameUuidFetcher.java
@@ -69,8 +71,8 @@ dev/jbull/simplecore/example/MessageExample.java
  dev.jbull.simplecore.example.MessageExample
 dev/jbull/simplecore/messaging/ChannelMessageProvider.java
  dev.jbull.simplecore.messaging.ChannelMessageProvider
-dev/jbull/simplecore/loader/CoreSpigot.java
- dev.jbull.simplecore.loader.CoreSpigot
+dev/jbull/simplecore/license/License.java
+ dev.jbull.simplecore.license.License
 dev/jbull/simplecore/Core.java
  dev.jbull.simplecore.Core
 dev/jbull/simplecore/database/sql/SQL.java
@@ -81,10 +83,12 @@ dev/jbull/simplecore/listener/InventoryClickListener.java
  dev.jbull.simplecore.listener.InventoryClickListener
 dev/jbull/simplecore/scoreboard/IScoreboard.java
  dev.jbull.simplecore.scoreboard.IScoreboard
+dev/jbull/simplecore/events/NpcClickEvent.java
+ dev.jbull.simplecore.events.NpcClickEvent
 dev/jbull/simplecore/scoreboard/Scoreboard.java
  dev.jbull.simplecore.scoreboard.Scoreboard
-dev/jbull/simplecore/license/License.java
- dev.jbull.simplecore.license.License
+dev/jbull/simplecore/commands/NPCCommnad.java
+ dev.jbull.simplecore.commands.NPCCommnad
 dev/jbull/simplecore/messages/IMessageProvider.java
  dev.jbull.simplecore.messages.IMessageProvider
 dev/jbull/simplecore/inventory/interfaces/IInventory.java
@@ -103,6 +107,8 @@ dev/jbull/simplecore/messages/SqlMessageProvider.java
  dev.jbull.simplecore.messages.SqlMessageProvider
 dev/jbull/simplecore/cloud/CloudNetCloudProvider.java
  dev.jbull.simplecore.cloud.CloudNetCloudProvider
+dev/jbull/simplecore/listener/NpcSpawnListener.java
+ dev.jbull.simplecore.listener.NpcSpawnListener
 dev/jbull/simplecore/listener/InventoryCloseListener.java
  dev.jbull.simplecore.listener.InventoryCloseListener
 dev/jbull/simplecore/events/Listener.java
@@ -119,17 +125,20 @@ dev/jbull/simplecore/listener/ChannelMessageListener.java
  dev.jbull.simplecore.listener.ChannelMessageListener
 dev/jbull/simplecore/inventory/anvil/AnvilInventory.java
  dev.jbull.simplecore.inventory.anvil.AnvilInventory
+dev/jbull/simplecore/database/mogodb/IMongoDB.java
+ dev.jbull.simplecore.database.mogodb.IMongoDB
 dev/jbull/simplecore/logger/Logger.java
  dev.jbull.simplecore.logger.Logger
 dev/jbull/simplecore/loader/CoreBungee.java
  dev.jbull.simplecore.loader.CoreBungee
-dev/jbull/simplecore/modules/ModuleLoader.java
- dev.jbull.simplecore.modules.ModuleLoader
-dev/jbull/simplecore/inventory/anvil/AnvilContainer.java
- dev.jbull.simplecore.inventory.anvil.AnvilContainer
 dev/jbull/simplecore/database/sql/ISQL.java
  dev.jbull.simplecore.database.sql.ISQL
-dev/jbull/simplecore/commands/NPCCommnad.java
- dev.jbull.simplecore.commands.NPCCommnad
-dev/jbull/simplecore/npc/NPCProvider.java
- dev.jbull.simplecore.npc.NPCProvider
+dev/jbull/simplecore/loader/CoreSpigot.java
+ dev.jbull.simplecore.loader.CoreSpigot
+dev/jbull/simplecore/npc/NPC.java
+ dev.jbull.simplecore.npc.NPC
+dev/jbull/simplecore/modules/ModuleLoader.java
+ dev.jbull.simplecore.modules.ModuleLoader
+dev/jbull/simplecore/listener/EntityUseListener.java
+ dev.jbull.simplecore.listener.EntityUseListener
+ dev.jbull.simplecore.listener.EntityUseListener$1

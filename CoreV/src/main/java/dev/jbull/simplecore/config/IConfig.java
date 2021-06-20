@@ -155,4 +155,10 @@ public interface IConfig {
      */
     public Set<String> getKeys(String key, boolean deep);
 
+    /**
+     * Gets an Set of the Strings looked for
+     * @param deep Defines if it should checked hierarchical
+     * @return the Set of Strings which were specified
+     */
+    public Set<String> getKeys(boolean deep);
 }
