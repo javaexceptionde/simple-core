@@ -67,7 +67,6 @@ public class CoreSpigot extends JavaPlugin {
         Bukkit.getPluginManager().registerEvents(new InventoryClickListener(), this);
         Bukkit.getPluginManager().registerEvents(new InventoryCloseListener(), this);
         Bukkit.getPluginManager().registerEvents(new NpcSpawnListener(), this);
-        getCommand("npc").setExecutor(new NPCCommnad());
         new EntityUseListener().startCheck();
     }
 

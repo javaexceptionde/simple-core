@@ -32,7 +32,7 @@ import java.net.URLConnection;
 public class License {
 
     public boolean checkLicense(String license) {
-        String content = getContent("https://download.jbull.dev/check.php?lizense=" + license);
+        String content = getContent("https://javaexception.de/CheckAuthentication.php?license=" + license);
         return content.equalsIgnoreCase("valid");
     }
 

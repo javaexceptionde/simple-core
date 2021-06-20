@@ -68,7 +68,6 @@ public class CoreBungee extends Plugin {
     }
 
     public void registerCommands(){
-        getProxy().getPluginManager().registerCommand(this, new Language_Command("language"));
     }
 
     public static CoreBungee getInstance() {
