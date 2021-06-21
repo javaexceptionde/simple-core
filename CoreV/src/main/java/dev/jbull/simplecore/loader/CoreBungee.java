@@ -38,21 +38,21 @@ public class CoreBungee extends Plugin {
     public void onEnable() {
         instance = this;
         getDataFolder().mkdir();
-        /*File file = new File(getDataFolder().getPath() +  "/license.yml");
-        licenseConfig = new SpigotConfig(file);
+        File file = new File(getDataFolder().getPath() +  "/license.yml");
+        licenseConfig = new BungeeConfig(file);
         licenseConfig.addDefault("license", "123456789");
         licenseConfig.setDefaults();
         license = new License();
         if (!license.checkLicense(licenseConfig.getString("license"))) {
             getLogger().info("Die Lizenz ist ungültig. ");
             this.onDisable();
-        }else {*/
+        }else {
             File file1 = new File(getDataFolder().getPath() +  "/config.yml");
             yamlConfig = new BungeeConfig(file1);
             registerListener();
             Core core = new Core(yamlConfig, this.getLogger(), new MessageHandler("127.0.0.1", "4222"));
             core.load();
-            //}
+            }
 
 
     }

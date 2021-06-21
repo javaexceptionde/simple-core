@@ -40,13 +40,13 @@ public class CoreSpigot extends JavaPlugin {
     public void onEnable() {
         instance = this;
         getDataFolder().mkdirs();
-        /*license = new License();
+        license = new License();
         File file = new File(getDataFolder().getPath() +  "/license.yml");
         licenseConfig = new SpigotConfig(file);
         if (!license.checkLicense(licenseConfig.getString("license"))){
             getLogger().info("License invalid");
             return;
-        }*/
+        }
         File file1 = new File(getDataFolder().getPath() +  "/config.yml");
         yamlConfig = new SpigotConfig(file1);
         MessageHandler handler = new MessageHandler("localhost", "4222");
