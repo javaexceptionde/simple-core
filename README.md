@@ -1,21 +1,20 @@
 # SimpleCore
-Diese Core ist ein Projekt welches die Entwicklung von Minecraft Plugins erleichtern soll sie enthält einige kleinere und größere selbst geschriebene API's beziehungsweise fungiert als eine Große API.
-
+This is a powerful and Big Developer API for Minecraft Spigot and Bungeecord Coding with many Features. The Features are explained on the [SpigotMC Page](https://www.spigotmc.org/resources/the-simple-core.93494/).
 ## Installation
 ### Maven
 ```
 <repositories>
     <repository>
-        <id>corev-repo</id>
-        <url>https://repo.legendempires.de/repository/maven-releases/</url>
+        <id>simple-core-repo</id>
+        <url>https://jitpack.io/</url>
     </repository>
 </repositories>
 
 <dependencies>
   <dependency>
-    <groupId>dev.jbull</groupId>
-    <artifactId>core-api</artifactId>
-    <version>1.0-Beta</version>
+    <groupId>com.github.JavaExceptionGHG</groupId>
+    <artifactId>simple-core</artifactId>
+    <version>0e4e5394</version>#Replace the Version with the Current commit-tag
   </dependency>
 </dependencies>
 ```
@@ -23,13 +22,14 @@ Diese Core ist ein Projekt welches die Entwicklung von Minecraft Plugins erleich
 ```
 repositories {
     maven {
-        url("https://repo.legendempires.de/repository/maven-releases/")
+        url("https://jitpack.io")
     }
 }
 
 dependencies {
-  implementation 'dev.jbull:core-api:1.0-Beta@jar'
+  implementation 'com.github.JavaExceptionGHG:simple-core:0e4e5394' #Replace the Version with the Current commit-tag
 }
 ``` 
-Um die API wirkungsvoll nutzen zu können muss auf dem Server auch das [Core Plugin](https://www.spigotmc.org/resources/the-simple-core.91442) installiert sein. 
-Die Dokumentation der API findest du [hier](https://docs.jbull.dev/)
+To use the API you need to install the [Core Plugin](https://www.spigotmc.org/resources/the-simple-core.93494) on all your Spigot and Bungeecord Servers. 
+The API Documentation can be found [here](https://docs.jbull.dev/)
+If you have any Questions please visit my [Discord Server](https://discord.com/invite/k36ytzT7sX)
