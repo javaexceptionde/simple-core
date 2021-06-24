@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6};
+var methods = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -216,12 +216,18 @@ var activeTableTab = "activeTableTab";
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getKeys-boolean-">getKeys</a></span>(boolean&nbsp;deep)</code>
+<div class="block">Gets an Set of the Strings looked for</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getKeys-java.lang.String-boolean-">getKeys</a></span>(java.lang.String&nbsp;key,
        boolean&nbsp;deep)</code>
 <div class="block">Gets an Set of the Strings looked for</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getKeys-java.lang.String-boolean-dev.jbull.simplecore.utils.Callback-">getKeys</a></span>(java.lang.String&nbsp;key,
        boolean&nbsp;deep,
@@ -229,39 +235,39 @@ var activeTableTab = "activeTableTab";
 <div class="block">Gets an Set of the Strings looked for</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getString-java.lang.String-">getString</a></span>(java.lang.String&nbsp;key)</code>
 <div class="block">Gets an String by the specified path</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getString-java.lang.String-dev.jbull.simplecore.utils.Callback-">getString</a></span>(java.lang.String&nbsp;key,
          <a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.String&gt;&nbsp;callback)</code>
 <div class="block">Gets an String of the specified path</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#load-dev.jbull.simplecore.utils.Callback-">load</a></span>(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;<a href="../../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a>&gt;&nbsp;callback)</code>
 <div class="block">Loads the configured Config synchronously</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#save-dev.jbull.simplecore.utils.Callback-">save</a></span>(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;<a href="../../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a>&gt;&nbsp;callback)</code>
 <div class="block">Saves the Configuration to File asynchronously</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#set-java.lang.String-java.lang.Object-">set</a></span>(java.lang.String&nbsp;key,
    java.lang.Object&nbsp;value)</code>
 <div class="block">Sets a path and value to the Config or updates it when it already exists</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/IConfig.html#setDefaults--">setDefaults</a></span>()</code>
 <div class="block">Sets the configured Stuff from the addDefault Method
@@ -588,7 +594,7 @@ var activeTableTab = "activeTableTab";
 <a name="getKeys-java.lang.String-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getKeys</h4>
 <pre>java.util.Set&lt;java.lang.String&gt;&nbsp;getKeys(java.lang.String&nbsp;key,
@@ -597,6 +603,22 @@ var activeTableTab = "activeTableTab";
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - The path were the keys should be from</dd>
+<dd><code>deep</code> - Defines if it should checked hierarchical</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Set of Strings which were specified</dd>
+</dl>
+</li>
+</ul>
+<a name="getKeys-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getKeys</h4>
+<pre>java.util.Set&lt;java.lang.String&gt;&nbsp;getKeys(boolean&nbsp;deep)</pre>
+<div class="block">Gets an Set of the Strings looked for</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>deep</code> - Defines if it should checked hierarchical</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Set of Strings which were specified</dd>

@@ -41,17 +41,20 @@ public class CoreSpigot extends JavaPlugin {
         instance = this;
         getDataFolder().mkdirs();
         license = new License();
-        File file = new File(getDataFolder().getPath() +  "/license.yml");
-        licenseConfig = new SpigotConfig(file);
-        if (!license.checkLicense(licenseConfig.getString("license"))){
-            getLogger().info("License invalid");
-            return;
-        }
         File file1 = new File(getDataFolder().getPath() +  "/config.yml");
         yamlConfig = new SpigotConfig(file1);
         MessageHandler handler = new MessageHandler("localhost", "4222");
         handler.sendMessage("bungeecord", "spigot registry");
         Core core = new Core(yamlConfig, Bukkit.getLogger(), handler);
+        File file = new File(getDataFolder().getPath() +  "/license.yml");
+        licenseConfig = new SpigotConfig(file);
+        licenseConfig.load(callBack -> {});
+        System.out.println(licenseConfig.getString("license"));
+        if (!license.checkLicense(licenseConfig.getString("license"))){
+            getLogger().info("License invalid");
+            this.getPluginLoader().disablePlugin(this);
+            return;
+        }t
         core.load();
         registerListener(yamlConfig.getBoolean("bungeecord"));
 

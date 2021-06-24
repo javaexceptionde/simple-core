@@ -17,7 +17,7 @@
     catch(err) {
     }
 //-->
-var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
+var methods = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10,"i18":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -231,12 +231,18 @@ implements <a href="../../../../dev/jbull/simplecore/config/IConfig.html" title=
 </tr>
 <tr id="i10" class="altColor">
 <td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
+<td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#getKeys-boolean-">getKeys</a></span>(boolean&nbsp;deep)</code>
+<div class="block">Gets an Set of the Strings looked for</div>
+</td>
+</tr>
+<tr id="i11" class="rowColor">
+<td class="colFirst"><code>java.util.Set&lt;java.lang.String&gt;</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#getKeys-java.lang.String-boolean-">getKeys</a></span>(java.lang.String&nbsp;key,
        boolean&nbsp;deep)</code>
 <div class="block">Gets an Set of the Strings looked for</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#getKeys-java.lang.String-boolean-dev.jbull.simplecore.utils.Callback-">getKeys</a></span>(java.lang.String&nbsp;key,
        boolean&nbsp;deep,
@@ -244,39 +250,39 @@ implements <a href="../../../../dev/jbull/simplecore/config/IConfig.html" title=
 <div class="block">Gets an Set of the Strings looked for</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#getString-java.lang.String-">getString</a></span>(java.lang.String&nbsp;key)</code>
 <div class="block">Gets an String by the specified path</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#getString-java.lang.String-dev.jbull.simplecore.utils.Callback-">getString</a></span>(java.lang.String&nbsp;key,
          <a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;java.lang.String&gt;&nbsp;callback)</code>
 <div class="block">Gets an String of the specified path</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#load-dev.jbull.simplecore.utils.Callback-">load</a></span>(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;<a href="../../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a>&gt;&nbsp;callback)</code>
 <div class="block">Loads the configured Config synchronously</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#save-dev.jbull.simplecore.utils.Callback-">save</a></span>(<a href="../../../../dev/jbull/simplecore/utils/Callback.html" title="interface in dev.jbull.simplecore.utils">Callback</a>&lt;<a href="../../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a>&gt;&nbsp;callback)</code>
 <div class="block">Saves the Configuration to File asynchronously</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#set-java.lang.String-java.lang.Object-">set</a></span>(java.lang.String&nbsp;key,
    java.lang.Object&nbsp;value)</code>
 <div class="block">Sets a path and value to the Config or updates it when it already exists</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <td class="colLast"><code><span class="memberNameLink"><a href="../../../../dev/jbull/simplecore/config/BungeeConfig.html#setDefaults--">setDefaults</a></span>()</code>
 <div class="block">Sets the configured Stuff from the addDefault Method
@@ -645,7 +651,7 @@ implements <a href="../../../../dev/jbull/simplecore/config/IConfig.html" title=
 <a name="getKeys-java.lang.String-boolean-">
 <!--   -->
 </a>
-<ul class="blockListLast">
+<ul class="blockList">
 <li class="blockList">
 <h4>getKeys</h4>
 <pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;getKeys(java.lang.String&nbsp;key,
@@ -657,6 +663,25 @@ implements <a href="../../../../dev/jbull/simplecore/config/IConfig.html" title=
 <dd><code><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getKeys-java.lang.String-boolean-">getKeys</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a></code></dd>
 <dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>key</code> - The path were the keys should be from</dd>
+<dd><code>deep</code> - Defines if it should checked hierarchical</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the Set of Strings which were specified</dd>
+</dl>
+</li>
+</ul>
+<a name="getKeys-boolean-">
+<!--   -->
+</a>
+<ul class="blockListLast">
+<li class="blockList">
+<h4>getKeys</h4>
+<pre>public&nbsp;java.util.Set&lt;java.lang.String&gt;&nbsp;getKeys(boolean&nbsp;deep)</pre>
+<div class="block"><span class="descfrmTypeLabel">Description copied from interface:&nbsp;<code><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getKeys-boolean-">IConfig</a></code></span></div>
+<div class="block">Gets an Set of the Strings looked for</div>
+<dl>
+<dt><span class="overrideSpecifyLabel">Specified by:</span></dt>
+<dd><code><a href="../../../../dev/jbull/simplecore/config/IConfig.html#getKeys-boolean-">getKeys</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../dev/jbull/simplecore/config/IConfig.html" title="interface in dev.jbull.simplecore.config">IConfig</a></code></dd>
+<dt><span class="paramLabel">Parameters:</span></dt>
 <dd><code>deep</code> - Defines if it should checked hierarchical</dd>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the Set of Strings which were specified</dd>
