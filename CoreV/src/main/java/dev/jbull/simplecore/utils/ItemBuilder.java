@@ -31,6 +31,7 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
@@ -121,9 +122,9 @@ public class ItemBuilder {
         return this;
     }
 
-    public ItemBuilder setColor(int code){
+    public ItemBuilder setColor(Color color){
         LeatherArmorMeta armorMeta = (LeatherArmorMeta)meta;
-        armorMeta.setColor(Color.fromRGB(code));
+        armorMeta.setColor(color);
         return this;
     }
 

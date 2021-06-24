@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f9e64033-9750-4829-9c60-9490bced688e" name="l">
+        <fileTransfer rootFolder="/home/CloudNet/local/templates/Global/server/plugins" accessType="SFTP" host="192.168.178.26" port="23" sshConfigId="a3c1a943-3478-4ffc-80f0-201dcf17d349" sshConfig="root@192.168.178.26:23 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

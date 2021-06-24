@@ -14,8 +14,9 @@ dev/jbull/simplecore/player/CorePlayer.java
  dev.jbull.simplecore.player.CorePlayer
 dev/jbull/simplecore/config/SpigotConfig.java
  dev.jbull.simplecore.config.SpigotConfig
-dev/jbull/simplecore/utils/ItemBuilder.java
- dev.jbull.simplecore.utils.ItemBuilder
+dev/jbull/simplecore/listener/EntityUseListener.java
+ dev.jbull.simplecore.listener.EntityUseListener
+ dev.jbull.simplecore.listener.EntityUseListener$1
 dev/jbull/simplecore/maps/IMapLoader.java
  dev.jbull.simplecore.maps.IMapLoader
 dev/jbull/simplecore/utils/IThrowableCallback.java
@@ -129,6 +130,5 @@ dev/jbull/simplecore/npc/NPC.java
  dev.jbull.simplecore.npc.NPC
 dev/jbull/simplecore/modules/ModuleLoader.java
  dev.jbull.simplecore.modules.ModuleLoader
-dev/jbull/simplecore/listener/EntityUseListener.java
- dev.jbull.simplecore.listener.EntityUseListener
- dev.jbull.simplecore.listener.EntityUseListener$1
+dev/jbull/simplecore/utils/ItemBuilder.java
+ dev.jbull.simplecore.utils.ItemBuilder
