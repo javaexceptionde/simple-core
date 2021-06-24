@@ -119,14 +119,14 @@ dev/jbull/simplecore/events/NpcClickEvent.java
  dev.jbull.simplecore.events.NpcClickEvent
 dev/jbull/simplecore/license/License.java
  dev.jbull.simplecore.license.License
-dev/jbull/simplecore/loader/CoreSpigot.java
- dev.jbull.simplecore.loader.CoreSpigot
-dev/jbull/simplecore/config/BungeeConfig.java
- dev.jbull.simplecore.config.BungeeConfig
-dev/jbull/simplecore/npc/NPC.java
- dev.jbull.simplecore.npc.NPC
 dev/jbull/simplecore/loader/CoreBungee.java
  dev.jbull.simplecore.loader.CoreBungee
+dev/jbull/simplecore/config/BungeeConfig.java
+ dev.jbull.simplecore.config.BungeeConfig
+dev/jbull/simplecore/loader/CoreSpigot.java
+ dev.jbull.simplecore.loader.CoreSpigot
+dev/jbull/simplecore/npc/NPC.java
+ dev.jbull.simplecore.npc.NPC
 dev/jbull/simplecore/modules/ModuleLoader.java
  dev.jbull.simplecore.modules.ModuleLoader
 dev/jbull/simplecore/listener/EntityUseListener.java

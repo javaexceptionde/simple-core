@@ -48,13 +48,16 @@ public class CoreSpigot extends JavaPlugin {
         Core core = new Core(yamlConfig, Bukkit.getLogger(), handler);
         File file = new File(getDataFolder().getPath() +  "/license.yml");
         licenseConfig = new SpigotConfig(file);
-        licenseConfig.load(callBack -> {});
+        licenseConfig.load(callBack -> {
+            callBack.addDefault("license", "ValidLicenseToEnter");
+            callBack.setDefaults();
+        });
         System.out.println(licenseConfig.getString("license"));
         if (!license.checkLicense(licenseConfig.getString("license"))){
             getLogger().info("License invalid");
             this.getPluginLoader().disablePlugin(this);
             return;
-        }t
+        }
         core.load();
         registerListener(yamlConfig.getBoolean("bungeecord"));
 
