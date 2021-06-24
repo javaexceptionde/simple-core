@@ -1,6 +1,8 @@
 name: SimpleCore
 main: dev.jbull.simplecore.loader.CoreSpigot
 version: 1.0.1-BETA
+depend: [ProtocolLib]
+website: https://www.spigotmc.org/resources/the-simple-core.93494/
 
 commands:
   npc:

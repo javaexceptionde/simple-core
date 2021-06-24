@@ -19,11 +19,14 @@ package dev.jbull.simplecore.utils;
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import org.apache.commons.codec.binary.Base64;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Horse;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
@@ -115,6 +118,12 @@ public class ItemBuilder {
     public ItemBuilder setGlow(){
         this.meta.addEnchant(Enchantment.DURABILITY, 1, true);
         this.meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        return this;
+    }
+
+    public ItemBuilder setColor(int code){
+        LeatherArmorMeta armorMeta = (LeatherArmorMeta)meta;
+        armorMeta.setColor(Color.fromRGB(code));
         return this;
     }
 
