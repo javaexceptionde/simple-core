@@ -152,6 +152,11 @@ public class BungeeConfig implements IConfig {
     }
 
     @Override
+    public float getFloat(String key) {
+        return configuration.getFloat(key);
+    }
+
+    @Override
     public Set<String> getKeys(String key, boolean deep) {
         Set<String> toReturn = Collections.emptySet();
         toReturn.addAll(configuration.getSection(key).getKeys());

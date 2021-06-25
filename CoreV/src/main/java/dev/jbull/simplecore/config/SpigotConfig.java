@@ -155,6 +155,11 @@ public class SpigotConfig implements IConfig {
     }
 
     @Override
+    public float getFloat(String key) {
+        return Float.parseFloat(configuration.getString(key));
+    }
+
+    @Override
     public Set<String> getKeys(String key, boolean deep) {
         return configuration.getConfigurationSection(key).getKeys(deep);
     }

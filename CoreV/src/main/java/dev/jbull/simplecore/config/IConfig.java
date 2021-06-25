@@ -148,6 +148,13 @@ public interface IConfig {
     Double getDouble(String key);
 
     /**
+     *
+     * @param key
+     * @return
+     */
+    float getFloat(String key);
+
+    /**
      * Gets an Set of the Strings looked for
      * @param key The path were the keys should be from
      * @param deep Defines if it should checked hierarchical
