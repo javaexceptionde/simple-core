@@ -16,18 +16,11 @@
 
 package dev.jbull.simplecore.license;
 
-import dev.jbull.simplecore.Core;
-import dev.jbull.simplecore.loader.CoreSpigot;
-import joptsimple.internal.Classes;
-
 import javax.net.ssl.HttpsURLConnection;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLClassLoader;
-import java.net.URLConnection;
 
 public class License {
 

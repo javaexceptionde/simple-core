@@ -48,7 +48,7 @@ public class AnvilInventory extends InventoryAbstract {
             inventory.setItem(slot, getItem(slot));
         }
         int c =  entityPlayer.nextContainerCounter();
-        entityPlayer.playerConnection.sendPacket(new PacketPlayOutOpenWindow(c,"minecraft:anvil", new ChatMessage("Repairing", new Object[]{}), 0));
+        entityPlayer.playerConnection.sendPacket(new PacketPlayOutOpenWindow(c,"minecraft:anvil", new ChatMessage("Repairing"), 0));
         entityPlayer.activeContainer = anvilContainer;
         entityPlayer.activeContainer.windowId = c;
         entityPlayer.activeContainer.addSlotListener(entityPlayer);

@@ -22,7 +22,6 @@ import org.apache.commons.codec.binary.Base64;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Horse;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -31,14 +30,13 @@ import org.bukkit.inventory.meta.SkullMeta;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
 public class ItemBuilder {
-    private ItemStack itemStack;
-    private ItemMeta meta;
-    private List<String> lore;
+    private final ItemStack itemStack;
+    private final ItemMeta meta;
+    private final List<String> lore;
 
     public ItemBuilder(Material mat){
         itemStack = new ItemStack(mat);
@@ -97,7 +95,7 @@ public class ItemBuilder {
         {
             profileField = ((SkullMeta)this.meta).getClass().getDeclaredField("profile");
             profileField.setAccessible(true);
-            profileField.set(((SkullMeta)this.meta), profile);
+            profileField.set(this.meta, profile);
         }
         catch (NoSuchFieldException | IllegalArgumentException | IllegalAccessException e)
         {

@@ -34,9 +34,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Scoreboard implements IScoreboard{
-    private org.bukkit.scoreboard.Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
-    private Objective objective = scoreboard.registerNewObjective("test", "dummy");
-    private Objective tabObjective = scoreboard.registerNewObjective("test1", "dummy");
+    private final org.bukkit.scoreboard.Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+    private final Objective objective = scoreboard.registerNewObjective("test", "dummy");
+    private final Objective tabObjective = scoreboard.registerNewObjective("test1", "dummy");
 
     public Scoreboard(){
         objective.setDisplaySlot(DisplaySlot.SIDEBAR);

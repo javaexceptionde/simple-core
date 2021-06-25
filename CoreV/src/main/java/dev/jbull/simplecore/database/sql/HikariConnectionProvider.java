@@ -35,8 +35,8 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class HikariConnectionProvider {
-    private HikariConfig config;
-    private HikariDataSource hikari;
+    private final HikariConfig config;
+    private final HikariDataSource hikari;
     String host;
     String user;
     String pw;

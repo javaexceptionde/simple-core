@@ -19,7 +19,7 @@ package dev.jbull.simplecore.events;
 import java.util.*;
 
 public class ListenerList implements List<Listener> {
-    private List<Listener> listenerList = new ArrayList<>();
+    private final List<Listener> listenerList = new ArrayList<>();
 
     @Override
     public int size() {

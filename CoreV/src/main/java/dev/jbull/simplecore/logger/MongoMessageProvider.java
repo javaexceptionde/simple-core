@@ -17,7 +17,6 @@
 package dev.jbull.simplecore.logger;
 
 
-import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.database.mogodb.MongoDatabase;
 import dev.jbull.simplecore.messages.IMessageProvider;
 

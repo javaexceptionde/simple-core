@@ -26,7 +26,7 @@ import net.md_5.bungee.event.EventHandler;
 import java.util.UUID;
 
 public class PlayerJoinListener implements Listener {
-    private NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
+    private final NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
 
     @EventHandler
     public void onJoin(LoginEvent event){

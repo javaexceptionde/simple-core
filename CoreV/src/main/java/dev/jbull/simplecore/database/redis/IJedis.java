@@ -33,13 +33,13 @@ public interface IJedis {
 
     void openConnectionAsync(Callback<Jedis> callback);
 
-    public void set(String key, Object value);
+    void set(String key, Object value);
 
-    public void set(String key, Object value, long delete);
+    void set(String key, Object value, long delete);
 
-    public String get(String key);
+    String get(String key);
 
-    public void delete(String key);
+    void delete(String key);
 
-    public boolean contains(String key);
+    boolean contains(String key);
 }

@@ -21,9 +21,9 @@ import org.bson.Document;
 
 public class ChannelMessageEvent {
 
-    private Document message;
+    private final Document message;
 
-    private String channel;
+    private final String channel;
 
     public ChannelMessageEvent(Document message, String channel) {
         this.message = message;

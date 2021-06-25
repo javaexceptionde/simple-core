@@ -16,7 +16,6 @@
 
 package dev.jbull.simplecore.player;
 
-import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.messages.Language;
 
 import java.util.UUID;
@@ -28,42 +27,42 @@ public interface IPlayerManager {
      * @param uuid The uuid which should be checked
      * @return returns a boolean if the player exists
      */
-    public boolean playerExists(UUID uuid);
+    boolean playerExists(UUID uuid);
 
     /**
      * Checks if the Name is currently registered in the Database
      * @param name The name which should be checked
      * @return returns a boolean if the player exists
      */
-    public boolean playerExists(String name);
+    boolean playerExists(String name);
 
     /**
      * Gets the current instance of the CorePlayer by his UUID
      * @param uuid The UUID which specifies the Player
      * @return the instance of {@link CorePlayer}
      */
-    public CorePlayer getPlayer(UUID uuid);
+    CorePlayer getPlayer(UUID uuid);
 
     /**
      * Gets an UUID by a player name
      * @param name The name where the uuid should be get
      * @return returns the UUID of the Name given
      */
-    public UUID getUUID(String name);
+    UUID getUUID(String name);
 
     /**
      * Gets an Name by a player uuid
      * @param uuid The uuid where the name should be get
      * @return returns the Name of the uuid given
      */
-    public String getName(UUID uuid);
+    String getName(UUID uuid);
 
     /**
      * Updates the Players language
      * @param player The Player which should be updated
      * @param language The language which should be the new
      */
-    public void updateLanguage(CorePlayer player, Language language);
+    void updateLanguage(CorePlayer player, Language language);
 
 
 

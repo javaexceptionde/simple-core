@@ -27,7 +27,7 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 
 public class NameUuidFetcher implements INameUuidFetcher {
-    private HikariConnectionProvider mysql = Core.getInstance().getMysql();
+    private final HikariConnectionProvider mysql = Core.getInstance().getMysql();
 
     @Override
     public String getName(UUID uuid) {
@@ -70,7 +70,7 @@ public class NameUuidFetcher implements INameUuidFetcher {
                 UUID otherUUID = getUUID(name);
                 update(otherUUID, getName(otherUUID));
             }
-            mysql.update("UPDATE nameuuid SET NAME= '" + name + "' WHERE UUID= '" + uuid.toString() + "'");
+            mysql.update("UPDATE nameuuid SET NAME= '" + name + "' WHERE UUID= '" + uuid + "'");
         }
 
     }
@@ -78,7 +78,7 @@ public class NameUuidFetcher implements INameUuidFetcher {
     private String getName(String uuid) {
 
         String output = callURL(
-                "https://sessionserver.mojang.com/session/minecraft/profile/" + uuid.toString().replaceAll("-", ""));
+                "https://sessionserver.mojang.com/session/minecraft/profile/" + uuid.replaceAll("-", ""));
 
         StringBuilder result = new StringBuilder();
 
@@ -127,7 +127,7 @@ public class NameUuidFetcher implements INameUuidFetcher {
         int i = 49;
         while (i < 200) {
             if (!String.valueOf(toRead.charAt(i)).equalsIgnoreCase("\"")) {
-                result.append(String.valueOf(toRead.charAt(i)));
+                result.append(toRead.charAt(i));
 
             } else {
                 break;

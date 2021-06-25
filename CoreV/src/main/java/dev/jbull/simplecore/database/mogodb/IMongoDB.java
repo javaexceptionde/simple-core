@@ -27,7 +27,7 @@ public interface IMongoDB {
     /**
      * Connects to the Mongo Database
      */
-    public void connect();
+    void connect();
 
     /**
      * Gets the MongoClient

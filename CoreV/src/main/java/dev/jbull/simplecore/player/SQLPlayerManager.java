@@ -26,8 +26,8 @@ import java.sql.SQLException;
 import java.util.UUID;
 
 public class SQLPlayerManager implements IPlayerManager {
-    private HikariConnectionProvider mysql = Core.getInstance().getMysql();
-    private NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
+    private final HikariConnectionProvider mysql = Core.getInstance().getMysql();
+    private final NameUuidFetcher nameUuidFetcher = Core.getInstance().getNameUuidFetcher();
 
     @Override
     public boolean playerExists(UUID uuid) {

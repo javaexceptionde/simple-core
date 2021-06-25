@@ -25,8 +25,8 @@ import org.apache.commons.lang3.Validate;
 import java.util.UUID;
 
 public class SqlMessageProvider implements IMessageProvider {
-    private HikariConnectionProvider mysql = Core.getInstance().getMysql();
-    private IPlayerManager playerManager = Core.getInstance().getPlayerManager();
+    private final HikariConnectionProvider mysql = Core.getInstance().getMysql();
+    private final IPlayerManager playerManager = Core.getInstance().getPlayerManager();
 
     @Override
     public String getMessage(String messageKey, String language){

@@ -39,9 +39,9 @@ public abstract class CorePlayer implements ICorePlayer {
         this.tokens = tokens;
     }
 
-    private String name;
-    private UUID uuid;
-    private String language;
-    private int coins;
-    private int tokens;
+    private final String name;
+    private final UUID uuid;
+    private final String language;
+    private final int coins;
+    private final int tokens;
 }

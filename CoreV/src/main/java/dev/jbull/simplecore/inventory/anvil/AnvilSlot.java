@@ -22,9 +22,9 @@ public enum AnvilSlot {
     INPUT_RIGHT(1),
     OUTPUT(2);
 
-    private int slot;
+    private final int slot;
 
-    private AnvilSlot(int slot){
+    AnvilSlot(int slot){
         this.slot = slot;
     }
 

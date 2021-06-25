@@ -16,11 +16,9 @@
 
 package dev.jbull.simplecore.example;
 
-import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.messages.IMessageProvider;
 import dev.jbull.simplecore.messages.Language;
 import dev.jbull.simplecore.messages.SqlMessageProvider;
-import org.bukkit.Bukkit;
 
 import java.util.UUID;
 

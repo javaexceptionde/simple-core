@@ -28,8 +28,8 @@ import java.util.Set;
 
 public class SpigotConfig implements IConfig {
     @Getter
-    private YamlConfiguration configuration;
-    private File file;
+    private final YamlConfiguration configuration;
+    private final File file;
     private boolean load = false;
 
     public SpigotConfig(File file){

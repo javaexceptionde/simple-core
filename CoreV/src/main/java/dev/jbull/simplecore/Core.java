@@ -41,20 +41,20 @@ import java.util.logging.Logger;
 public class Core {
     @Getter
     private static Core instance;
-    private ExecuteScheduler scheduler;
+    private final ExecuteScheduler scheduler;
     private HikariConnectionProvider mysql;
     private NameUuidFetcher nameUuidFetcher;
-    private IConfig yamlConfig;
+    private final IConfig yamlConfig;
     private InventoryManager inventoryManager;
     private Jedis jedis;
     private final dev.jbull.simplecore.logger.Logger logger;
     private final boolean debug = false;
     private Connection nc;
-    private ListenerList listenerList;
+    private final ListenerList listenerList;
     private IPlayerManager playerManager;
-    private MessageHandler messageHandler;
+    private final MessageHandler messageHandler;
     private IMessageProvider messageProvider;
-    private INPCProvider npcProvider;
+    private final INPCProvider npcProvider;
 
     public Core(IConfig yamlConfig, Logger logger, MessageHandler handler){
         messageHandler = handler;

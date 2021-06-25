@@ -25,22 +25,22 @@ public interface INameUuidFetcher {
      * @param uuid the UUID of the player you want to get the Name
      * @return Returns the name of the player by his UUID
      */
-    public String getName(UUID uuid);
+    String getName(UUID uuid);
 
     /**
      * Gets the UUID of the Specified User from the Database by the given Name
      * @param name the Name of the Player you want to get the UUID
      * @return Returns the UUID of the player by his UUID
      */
-    public UUID getUUID(String name);
+    UUID getUUID(String name);
 
-    public boolean hasPlayedOnNetwork(UUID uuid);
+    boolean hasPlayedOnNetwork(UUID uuid);
 
-    public boolean hasPlayedOnNetwork(String name);
+    boolean hasPlayedOnNetwork(String name);
 
-    public boolean isUpdated(UUID uuid, String name);
+    boolean isUpdated(UUID uuid, String name);
 
-    public void insert(UUID uuid, String name);
+    void insert(UUID uuid, String name);
 
-    public void update(UUID uuid, String name);
+    void update(UUID uuid, String name);
 }

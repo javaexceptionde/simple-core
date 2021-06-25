@@ -36,8 +36,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class SQL implements ISQL {
 
-    private HikariConfig config;
-    private HikariDataSource hikari;
+    private final HikariConfig config;
+    private final HikariDataSource hikari;
     String host;
     String user;
     String pw;
