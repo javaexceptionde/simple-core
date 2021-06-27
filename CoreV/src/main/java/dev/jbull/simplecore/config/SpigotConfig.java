@@ -95,6 +95,11 @@ public class SpigotConfig implements IConfig {
     }
 
     @Override
+    public void createSection(String path) {
+        configuration.createSection(path);
+    }
+
+    @Override
     public boolean exists(String key) {
         return configuration.contains(key);
     }

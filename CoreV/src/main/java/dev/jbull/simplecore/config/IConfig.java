@@ -20,6 +20,7 @@ import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.logger.Logger;
 import dev.jbull.simplecore.utils.Callback;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
+import org.bukkit.Location;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -61,6 +62,12 @@ public interface IConfig {
      * @param value the Value which would saved to the Path
      */
     void set(String key, Object value);
+
+    /**
+     * Create Section
+     * @param path
+     */
+    void createSection(String path);
 
     /**
      * Checks if the specified path exists in the Config

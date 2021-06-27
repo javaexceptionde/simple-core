@@ -90,6 +90,11 @@ public class BungeeConfig implements IConfig {
     }
 
     @Override
+    public void createSection(String path) {
+        configuration.set(path, null);
+    }
+
+    @Override
     public boolean exists(String key) {
         return configuration.contains(key);
     }
