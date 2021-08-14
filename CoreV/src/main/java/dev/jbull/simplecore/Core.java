@@ -33,13 +33,70 @@ import dev.jbull.simplecore.player.SQLPlayerManager;
 import dev.jbull.simplecore.player.nameUuid.NameUuidFetcher;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
 import io.nats.client.Connection;
-import lombok.Getter;
 
 import java.util.logging.Logger;
 
-@Getter
 public class Core {
-    @Getter
+    public static Core getInstance() {
+        return instance;
+    }
+
+    public ExecuteScheduler getScheduler() {
+        return scheduler;
+    }
+
+    public HikariConnectionProvider getMysql() {
+        return mysql;
+    }
+
+    public NameUuidFetcher getNameUuidFetcher() {
+        return nameUuidFetcher;
+    }
+
+    public IConfig getYamlConfig() {
+        return yamlConfig;
+    }
+
+    public InventoryManager getInventoryManager() {
+        return inventoryManager;
+    }
+
+    public Jedis getJedis() {
+        return jedis;
+    }
+
+    public dev.jbull.simplecore.logger.Logger getLogger() {
+        return logger;
+    }
+
+    public boolean isDebug() {
+        return debug;
+    }
+
+    public Connection getNc() {
+        return nc;
+    }
+
+    public ListenerList getListenerList() {
+        return listenerList;
+    }
+
+    public IPlayerManager getPlayerManager() {
+        return playerManager;
+    }
+
+    public MessageHandler getMessageHandler() {
+        return messageHandler;
+    }
+
+    public IMessageProvider getMessageProvider() {
+        return messageProvider;
+    }
+
+    public INPCProvider getNpcProvider() {
+        return npcProvider;
+    }
+
     private static Core instance;
     private final ExecuteScheduler scheduler;
     private HikariConnectionProvider mysql;
@@ -48,7 +105,7 @@ public class Core {
     private InventoryManager inventoryManager;
     private Jedis jedis;
     private final dev.jbull.simplecore.logger.Logger logger;
-    private final boolean debug = false;
+    private final boolean debug = true;
     private Connection nc;
     private final ListenerList listenerList;
     private IPlayerManager playerManager;

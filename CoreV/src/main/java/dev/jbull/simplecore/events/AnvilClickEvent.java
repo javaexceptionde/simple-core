@@ -18,15 +18,46 @@ package dev.jbull.simplecore.events;
 
 import dev.jbull.simplecore.inventory.anvil.AnvilContainer;
 import dev.jbull.simplecore.inventory.anvil.AnvilMap;
-import lombok.Data;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Cancellable;
 
-@Data
 public class AnvilClickEvent extends CustomEvent implements Cancellable {
     private boolean isCanceled = false;
     private int clickedSlot;
     private AnvilContainer anvilContainer;
+
+    public boolean isCanceled() {
+        return isCanceled;
+    }
+
+    public void setCanceled(boolean canceled) {
+        isCanceled = canceled;
+    }
+
+    public int getClickedSlot() {
+        return clickedSlot;
+    }
+
+    public void setClickedSlot(int clickedSlot) {
+        this.clickedSlot = clickedSlot;
+    }
+
+    public AnvilContainer getAnvilContainer() {
+        return anvilContainer;
+    }
+
+    public void setAnvilContainer(AnvilContainer anvilContainer) {
+        this.anvilContainer = anvilContainer;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
     private Player player;
 
     /**

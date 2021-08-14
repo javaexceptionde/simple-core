@@ -18,7 +18,7 @@ package dev.jbull.simplecore.database.sql;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import de.dytanic.cloudnet.driver.CloudNetDriver;
+import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.utils.Callback;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
 import dev.jbull.simplecore.utils.IThrowableCallback;
@@ -28,6 +28,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -77,14 +78,14 @@ public class HikariConnectionProvider {
     }
 
     public Future<Void> openConnectionAsync(Callback<Connection> callback){
-        return CloudNetDriver.getInstance().getTaskScheduler().schedule(() -> {
+        return CompletableFuture.supplyAsync(() -> {
             try(Connection connection = hikari.getConnection()) {
                 callback.call(connection);
             } catch (SQLException exception) {
                 exception.printStackTrace();
             }
-
-        });
+            return null;
+        }, Core.getInstance().getScheduler().getExecutor());
     }
 
     public <T> T openConnection(IThrowableCallback<Connection, T> callback){

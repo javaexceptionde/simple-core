@@ -21,7 +21,6 @@ import com.zaxxer.hikari.HikariDataSource;
 import dev.jbull.simplecore.Core;
 import dev.jbull.simplecore.utils.ExecuteScheduler;
 import org.apache.commons.lang3.Validate;
-import org.checkerframework.checker.units.qual.A;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

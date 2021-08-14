@@ -22,16 +22,18 @@ import dev.jbull.simplecore.config.SpigotConfig;
 import dev.jbull.simplecore.license.License;
 import dev.jbull.simplecore.listener.*;
 import dev.jbull.simplecore.messaging.MessageHandler;
-import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 
-@Getter
 public class CoreSpigot extends JavaPlugin {
-    @Getter
     private static CoreSpigot instance;
+
+    public static CoreSpigot getInstance() {
+        return instance;
+    }
+
     private IConfig yamlConfig;
     private IConfig licenseConfig;
     private License license;

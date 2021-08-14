@@ -21,7 +21,6 @@ import dev.jbull.simplecore.config.BungeeConfig;
 import dev.jbull.simplecore.config.IConfig;
 import dev.jbull.simplecore.license.License;
 import dev.jbull.simplecore.messaging.MessageHandler;
-import lombok.Getter;
 import net.md_5.bungee.api.plugin.Plugin;
 
 import java.io.File;
@@ -31,7 +30,10 @@ public class CoreBungee extends Plugin {
     private IConfig licenseConfig;
     private License license;
 
-    @Getter
+    public IConfig getYamlConfig() {
+        return yamlConfig;
+    }
+
     private IConfig yamlConfig;
 
     @Override

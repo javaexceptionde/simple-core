@@ -34,9 +34,6 @@ repositories {
     mavenCentral()
     jcenter()
     maven {
-        url('https://repo.cloudnetservice.eu/repository/releases/')
-    }
-    maven {
         url("https://repo.legendempires.de/repository/maven-releases/")
         credentials {
             username "bwsucht-read"
@@ -54,7 +51,6 @@ repositories {
 
 dependencies {
     compile 'org.spigotmc:spigot:1.8.8@jar'
-    compile 'org.lombok:lombok:1@jar'
     compile 'com.zaxxer:HikariCP:4.0.3@jar'
     compile("org.mongodb:mongodb-driver-async:3.4.1")
     compile 'org.mariadb.jdbc:mariadb-java-client:2.7.2'
@@ -62,8 +58,6 @@ dependencies {
     compile  'net.md-5:bungeecord:1.16'
     compile group: 'redis.clients', name: 'jedis', version: '2.8.0'
     compile 'io.nats:jnats:2.10.0'
-    compile 'de.dytanic.cloudnet:cloudnet-driver:3.3.0-RELEASE'
-    compile 'de.dytanic.cloudnet:cloudnet-bridge:3.3.0-RELEASE'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compileOnly group: "com.comphenix.protocol", name: "ProtocolLib", version: "4.6.0"
 

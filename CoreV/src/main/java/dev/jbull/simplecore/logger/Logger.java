@@ -17,7 +17,7 @@
 package dev.jbull.simplecore.logger;
 
 public class Logger {
-    private boolean debug = false;
+    private boolean debug = true;
     private final java.util.logging.Logger logger;
 
     public Logger(java.util.logging.Logger logger){

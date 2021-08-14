@@ -17,9 +17,12 @@
 package dev.jbull.simplecore.config;
 
 import dev.jbull.simplecore.utils.Callback;
-import lombok.Getter;
+import org.bukkit.Location;
 import org.bukkit.configuration.InvalidConfigurationException;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.configuration.serialization.ConfigurationSerializable;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,8 +30,11 @@ import java.io.IOException;
 import java.util.Set;
 
 public class SpigotConfig implements IConfig {
-    @Getter
-    private final YamlConfiguration configuration;
+    public YamlConfiguration getConfiguration() {
+        return configuration;
+    }
+
+    private YamlConfiguration configuration;
     private final File file;
     private boolean load = false;
 
@@ -46,19 +52,11 @@ public class SpigotConfig implements IConfig {
     @Override
     public void load(Callback<IConfig> callback) {
         load = true;
+        ConfigurationSerialization.registerClass(Location.class);
+        configuration = YamlConfiguration.loadConfiguration(file);
+        logger.debug("The Config was successful loaded");
 
-            try {
-                configuration.load(file);
-                logger.debug("The Config was successful loaded");
-            } catch (FileNotFoundException e) {
-                logger.debug("The Config can't be loaded check if the File exists\nThe following error occurred " + e.getCause());
-            } catch (InvalidConfigurationException e) {
-                logger.debug("The Config can't be loaded because the Configuration is Invalid\nThe following error occurred " + e.getCause());
-            }catch (IOException e){
-                logger.debug("The Config can't be loaded. The following error occurred " +  e.getCause());
-            }
-
-            callback.call(this);
+        callback.call(this);
             load = false;
 
     }
@@ -166,6 +164,8 @@ public class SpigotConfig implements IConfig {
 
     @Override
     public Set<String> getKeys(String key, boolean deep) {
+        System.out.println(configuration == null);
+        System.out.println(configuration.getConfigurationSection(key) == null);
         return configuration.getConfigurationSection(key).getKeys(deep);
     }
 

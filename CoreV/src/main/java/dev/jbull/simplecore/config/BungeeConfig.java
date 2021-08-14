@@ -18,7 +18,6 @@ package dev.jbull.simplecore.config;
 
 import dev.jbull.simplecore.loader.CoreBungee;
 import dev.jbull.simplecore.utils.Callback;
-import lombok.Getter;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -30,7 +29,11 @@ import java.util.Set;
 
 public class BungeeConfig implements IConfig {
     ConfigurationProvider provider;
-    @Getter
+
+    public Configuration getConfiguration() {
+        return configuration;
+    }
+
     Configuration configuration;
     File file;
 

@@ -17,17 +17,24 @@
 package dev.jbull.simplecore.inventory.abstracts;
 
 import dev.jbull.simplecore.inventory.interfaces.IInventory;
-import lombok.Data;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.concurrent.ConcurrentHashMap;
 
-@Data
 public class InventoryAbstract implements IInventory {
     private String tittle;
     private int size;
+
+    public String getTittle() {
+        return tittle;
+    }
+
     private ConcurrentHashMap<Integer, ItemStack> slots = new ConcurrentHashMap<Integer, ItemStack>();
+
+    public ConcurrentHashMap<Integer, ItemStack> getSlots() {
+        return slots;
+    }
 
     public InventoryAbstract(String tittle, int size){
         this.tittle = tittle;

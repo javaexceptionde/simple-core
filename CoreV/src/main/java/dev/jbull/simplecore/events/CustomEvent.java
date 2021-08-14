@@ -16,11 +16,10 @@
 
 package dev.jbull.simplecore.events;
 
-import lombok.Getter;
+
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-@Getter
 public abstract class CustomEvent extends Event {
     private static final HandlerList HANDLERS = new HandlerList();
 
